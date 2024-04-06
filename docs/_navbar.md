@@ -32,6 +32,10 @@
     * [Selenium的使用](/Python0to1/docs/Spiders/selenium)
     * [Splash的使用](/Python0to1/docs/Spiders/splash)
     * [数据存储](/Python0to1/docs/Spiders/saveData)
-* [首页](/README.md)  
-* [Github](https://github.com/weno861/blog)
+    * [Scrapy框架](/Python0to1/docs/Spiders/scrapy)
+* [首页](/README.md)
+* 联系作者
+    * [Github](https://github.com/weinuozhou/blog)
+    * [知乎](https://www.zhihu.com/people/pai-da-xiao-xing-xing-7)
+
 
