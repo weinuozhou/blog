@@ -81,3 +81,8 @@
         * [HDFS编程实践](/Hadoop技术栈/hdfs编程实践)
     * MapReduce
         * [MapReduce简介](/Hadoop技术栈/MapReduce简介)
+    * Hive
+        * [数据仓库基础](/Hadoop技术栈/数据仓库基础)
+        * [OLAP与多维数据模型](/Hadoop技术栈/OLAP与多维数据模型)
+        * [数据仓库架构](/Hadoop技术栈/数据仓库架构)
+        * [Hive简介](/Hadoop技术栈/Hive入门)

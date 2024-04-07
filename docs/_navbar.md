@@ -50,6 +50,7 @@
     * [Hadoop 基础](/Hadoop技术栈/Hadoop的简介与安装)
     * [HDFS](/Hadoop技术栈/hdfs简介)
     * [MapReduce](/Hadoop技术栈/MapReduce简介)
+    * [Hive](/Hadoop技术栈/数据仓库基础)
 * [首页](/README.md)
 * 联系作者
     * [Github](https://github.com/weinuozhou/blog)
