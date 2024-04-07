@@ -1,3 +1,5 @@
+* [大数据技术概述](/大数据技术)
+* [大数据相关软件安装](/software)
 * `MySQL` 基础
     * `MySQL` 概述
         * [数据库概述](/MySQLTutorial/docs/MySQL概述/数据库概述)
@@ -57,3 +59,25 @@
         * [Splash的使用](/Python0to1/docs/Spiders/splash)
         * [数据存储](/Python0to1/docs/Spiders/saveData)
         * [Scrapy框架](/Python0to1/docs/Spiders/scrapy)
+* `Linux` 基础
+    * [Linux操作系统简介](/Linux/intro)
+    * [Linux文件与目录管理](/Linux/linux命令基础/Linux文件与目录管理)
+    * [Linux文件权限与归属](/Linux/linux命令基础/Linux文件基本属性)
+    * [Linux用户与用户组](/Linux/linux命令基础/Linux用户与用户组)
+    * [Linux磁盘管理](/Linux/linux命令基础/Linux磁盘管理)
+    * [Linux进程管理](/Linux/linux命令基础/Linux进程管理)
+    * [Linux软件安装](/Linux/linux软件安装及系统设置/Linux软件安装)
+    * [Linux环境变量](/Linux/linux软件安装及系统设置/Linux环境变量)
+    * [Linux软件的启动与停止](/Linux/linux软件安装及系统设置/Linux软件的启动与停止)
+    * [Linux日期与时区](/Linux/linux软件安装及系统设置/Linux日期和时区)
+    * [Linux网络请求和下载](/Linux/linux软件安装及系统设置/Linux网络请求和下载)
+    * [Linux IP地址与主机名](/Linux/linux软件安装及系统设置/LinuxIP地址与主机名)
+* Hadoop 技术栈
+    * Hadoop 基础
+        * [Hadoop安装](/Hadoop技术栈/Hadoop的简介与安装)
+        * [Hadoop再探讨](/Hadoop技术栈/探讨Hadoop)
+    * HDFS 
+        * [HDFS简介](/Hadoop技术栈/hdfs简介)
+        * [HDFS编程实践](/Hadoop技术栈/hdfs编程实践)
+    * MapReduce
+        * [MapReduce简介](/Hadoop技术栈/MapReduce简介)
