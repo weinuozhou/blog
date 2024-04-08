@@ -80,7 +80,7 @@
     * [MongoDB](/NoSQL/mongodb)
 * Hadoop 技术栈
     * Hadoop 基础
-        * [Hadoop安装](/Hadoop技术栈/Hadoop/Hadoop的简介与安装)
+        * [Hadoop集群环境搭建](/Hadoop技术栈/Hadoop/Hadoop的简介与安装)
         * [集群资源管理器--Yarn](/Hadoop技术栈/Hadoop/探讨Hadoop)
     * HDFS 
         * [分布式文件存储系统--HDFS](/Hadoop技术栈/HDFS/hdfs简介)
@@ -99,7 +99,8 @@
     * Spark Core
         * [Spark简介](/Spark技术栈/SparkCore/Spark)
         * [Spark环境安装](/Spark技术栈/SparkCore/Spark环境安装)
-        * [PySpark](/Spark技术栈/SparkCore/pyspark)
+        * [Spark部署模式与作业提交](/Spark技术栈/SparkCore/spark部署模式与提交运行)
+        * [PySpark基本使用](/Spark技术栈/SparkCore/pyspark)
         * [弹性分布式数据集RDD](/Spark技术栈/SparkCore/rdd)
         * [广播变量与累加器](/Spark技术栈/SparkCore/广播变量与累加器)
     * Spark DataFrame
