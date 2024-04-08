@@ -99,4 +99,13 @@
     * Spark Core
         * [Spark简介](/Spark技术栈/SparkCore/Spark)
         * [Spark环境安装](/Spark技术栈/SparkCore/Spark环境安装)
-        * [弹性分布式数据集RDD](/Spark/SparkCore/rdd)
+        * [PySpark](/Spark技术栈/SparkCore/pyspark)
+        * [弹性分布式数据集RDD](/Spark技术栈/SparkCore/rdd)
+        * [广播变量与累加器](/Spark技术栈/SparkCore/广播变量与累加器)
+    * Spark DataFrame
+        * [StructType&StructField](/Spark技术栈/SparkDataFrame/StructType和StructField)
+        * [创建DataFrame](/Spark技术栈/SparkDataFrame/CreateDataFrame)
+        * [RDD与DataFrame的转换](/Spark技术栈/SparkDataFrame/RDDtoDataFrame)
+        * [DataFrame对行、列处理的相关函数](/Spark技术栈/SparkDataFrame/general)
+      * Spark SQL
+        * [Spark SQL简介](/Spark技术栈/SparkSQL/SparkSQL)
