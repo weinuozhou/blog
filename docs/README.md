@@ -133,11 +133,15 @@
     * [HBase编程实践](/Hadoop技术栈/HBase/hbase编程实践)
 * MapReduce
     * [MapReduce简介](/Hadoop技术栈/MapReduce/MapReduce简介)
-* Hive
-    * [数据仓库基础](/Hadoop技术栈/Hive/数据仓库基础)
-    * [OLAP与多维数据模型](/Hadoop技术栈/Hive/OLAP与多维数据模型)
-    * [数据仓库架构](/Hadoop技术栈/Hive/数据仓库架构)
-    * [Hive简介](/Hadoop技术栈/Hive/Hive入门)
+
+---
+
+### `Hive` 技术栈
+
+* [数据仓库基础](/Hive技术栈/数据仓库基础)
+* [OLAP与多维数据模型](/Hive技术栈/OLAP与多维数据模型)
+* [数据仓库架构](/Hive技术栈/数据仓库架构)
+* [Hive简介](/Hive技术栈/Hive入门)
 
 ---
 

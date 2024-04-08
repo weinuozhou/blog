@@ -59,6 +59,8 @@
         * [Splash的使用](/Python0to1/docs/Spiders/splash)
         * [数据存储](/Python0to1/docs/Spiders/saveData)
         * [Scrapy框架](/Python0to1/docs/Spiders/scrapy)
+    * 机器学习
+        * [机器学习与数据挖掘基础](/machinelearning/机器学习与数据挖掘基础)
 * `Linux` 基础
     * [Linux操作系统简介](/Linux/intro)
     * Linux 命令基础
@@ -90,11 +92,11 @@
         * [HBase编程实践](/Hadoop技术栈/HBase/hbase编程实践)
     * MapReduce
         * [分布式计算框架--MapReduce](/Hadoop技术栈/MapReduce/MapReduce简介)
-    * Hive
-        * [数据仓库基础](/Hadoop技术栈/Hive/数据仓库基础)
-        * [OLAP与多维数据模型](/Hadoop技术栈/Hive/OLAP与多维数据模型)
-        * [数据仓库架构](/Hadoop技术栈/Hive/数据仓库架构)
-        * [Hive简介](/Hadoop技术栈/Hive/Hive入门)
+* Hive 技术栈
+    * [数据仓库基础](/Hive技术栈/数据仓库基础)
+    * [OLAP与多维数据模型](/Hive技术栈/OLAP与多维数据模型)
+    * [数据仓库架构](/Hive技术栈/数据仓库架构)
+    * [Hive简介](/Hive技术栈/Hive入门)
 * Spark技术栈
     * Spark Core
         * [Spark简介](/Spark技术栈/SparkCore/Spark)
