@@ -81,10 +81,17 @@
     * [OLAP与多维数据模型](/Hadoop技术栈/Hive/OLAP与多维数据模型)
     * [数据仓库架构](/Hadoop技术栈/Hive/数据仓库架构)
     * [Hive简介](/Hadoop技术栈/Hive/Hive入门)
-* Spark 技术栈
+* Spark技术栈
     * [Spark简介](/Spark技术栈/SparkCore/Spark)
     * [Spark环境安装](/Spark技术栈/SparkCore/Spark环境安装)
-    * [弹性分布式数据集RDD](/Spark/SparkCore/rdd)
+    * [PySpark](/Spark技术栈/SparkCore/pyspark)
+    * [弹性分布式数据集RDD](/Spark技术栈/SparkCore/rdd)
+    * [广播变量与累加器](/Spark技术栈/SparkCore/广播变量与累加器)
+    * [StructType&StructField](/Spark技术栈/SparkDataFrame/StructType和StructField)
+    * [创建DataFrame](/Spark技术栈/SparkDataFrame/CreateDataFrame)
+    * [RDD与DataFrame的转换](/Spark技术栈/SparkDataFrame/RDDtoDataFrame)
+    * [DataFrame对行、列处理的相关函数](/Spark技术栈/SparkDataFrame/general)
+    * [日期与时间函数](/Spark技术栈/SparkDataFrame/timestamp)
 * [首页](/README.md)
 * 联系作者
     * [Github](https://github.com/weinuozhou/blog)
