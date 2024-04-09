@@ -344,3 +344,21 @@ df.groupBy("department") \
     .where(col("sum_bonus") >= 50000)\
     .show(truncate=False)
 ```
+
+## 创建视图使用 SQL 语句
+
+* `createOrReplaceTempView()` 创建一个临时视图，生命周期取决于当前SparkSession
+* `createOrReplaceGlobalTempView()` 创建一个全局视图，生命周期取决于SparkSession本身
+  
+```python
+data = [("James", "","Smith","36636","M",60000),
+        ("Michael","Rose","","40288","M",70000),
+        ("Robert","","Williams","42114","",400000),
+        ("Maria","Anne","Jones","39192","F",500000),
+        ("Jen","Mary","Brown","","F",0)]
+
+columns = ["first_name","middle_name","last_name","dob","gender","salary"]
+df = spark.createDataFrame(data = data, schema = columns)
+df.createOrReplaceTempView("employee")
+spark.sql("select gender, avg(salary) as avg_salary from employee where gender!='' group by gender ").show()
+```

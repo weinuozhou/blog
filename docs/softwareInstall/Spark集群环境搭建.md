@@ -150,7 +150,7 @@ start-yarn.sh
 
 ### 查看服务
 
-查看 Spark 的 Web-UI 页面，端口为 8080。此时可以看到 Master 上的 Master 节点处于 ALIVE 状态，并有 2 个可用的 Worker 节点
+查看 Spark 的 Web-UI 页面，端口为 8081。此时可以看到 Master 上的 Master 节点处于 ALIVE 状态，并有 2 个可用的 Worker 节点
 
 <div style="text-align: center;"><img alt='202404082016613' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404082016613.png' width=500px> </div>
 

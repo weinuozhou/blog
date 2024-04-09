@@ -1,5 +1,9 @@
 * [大数据技术概述](/大数据技术)
-* [大数据相关软件安装](/software)
+* 大数据相关软件安装
+    * [大数据软件安装包](/softwareInstall/software)
+    * [zookeeper集群环境搭建](/softwareInstall/zookeeper集群环境搭建)
+    * [Hadoop集群环境搭建](/softwareInstall/Hadoop集群环境安装)
+    * [Spark集群环境搭建](/softwareInstall/Spark集群环境搭建)
 * `MySQL` 基础
     * `MySQL` 概述
         * [数据库概述](/MySQLTutorial/docs/MySQL概述/数据库概述)
@@ -82,7 +86,6 @@
     * [MongoDB](/NoSQL/mongodb)
 * Hadoop 技术栈
     * Hadoop 基础
-        * [Hadoop集群环境搭建](/Hadoop技术栈/Hadoop/Hadoop的简介与安装)
         * [集群资源管理器--Yarn](/Hadoop技术栈/Hadoop/探讨Hadoop)
     * HDFS 
         * [分布式文件存储系统--HDFS](/Hadoop技术栈/HDFS/hdfs简介)
@@ -100,16 +103,16 @@
 * Spark技术栈
     * Spark Core
         * [Spark简介](/Spark技术栈/SparkCore/Spark)
-        * [Spark环境安装](/Spark技术栈/SparkCore/Spark环境安装)
         * [Spark部署模式与作业提交](/Spark技术栈/SparkCore/spark部署模式与提交运行)
         * [PySpark基本使用](/Spark技术栈/SparkCore/pyspark)
         * [弹性分布式数据集RDD](/Spark技术栈/SparkCore/rdd)
         * [广播变量与累加器](/Spark技术栈/SparkCore/广播变量与累加器)
-    * Spark DataFrame
-        * [StructType&StructField](/Spark技术栈/SparkDataFrame/StructType和StructField)
-        * [创建DataFrame](/Spark技术栈/SparkDataFrame/CreateDataFrame)
-        * [RDD与DataFrame的转换](/Spark技术栈/SparkDataFrame/RDDtoDataFrame)
-        * [DataFrame对行、列处理的相关函数](/Spark技术栈/SparkDataFrame/general)
-        * [日期与时间函数](/Spark技术栈/SparkDataFrame/timestamp)
-    * Spark SQL
-        * [Spark SQL简介](/Spark技术栈/SparkSQL/SparkSQL)
+    * SparkSQL
+        * [SparkSQL简介](/Spark技术栈/SparkSQL/SparkSQL)
+        * [StructType&StructField](/Spark技术栈/SparkSQL/StructType和StructField)
+        * [创建DataFrame](/Spark技术栈/SparkSQL/CreateDataFrame)
+        * [RDD与DataFrame的转换](/Spark技术栈/SparkSQL/RDDtoDataFrame)
+        * [DataFrame对行、列处理的相关函数](/Spark技术栈/SparkSQL/general)
+        * [日期与时间函数](/Spark技术栈/SparkSQL/timestamp)
+    * SparkDataSource
+        * [PySpark读写csv文件](/Spark技术栈/SparkDataSource/readcsv)
