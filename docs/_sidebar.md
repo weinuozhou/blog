@@ -101,18 +101,21 @@
     * [数据仓库架构](/Hive技术栈/数据仓库架构)
     * [Hive简介](/Hive技术栈/Hive入门)
 * Spark技术栈
-    * Spark Core
-        * [Spark简介](/Spark技术栈/SparkCore/Spark)
+    * SparkCore
+        * [Spark简介](/Spark技术栈/SparkCore/Spark运行模式简介)
         * [Spark部署模式与作业提交](/Spark技术栈/SparkCore/spark部署模式与提交运行)
-        * [PySpark基本使用](/Spark技术栈/SparkCore/pyspark)
-        * [弹性分布式数据集RDD](/Spark技术栈/SparkCore/rdd)
-        * [广播变量与累加器](/Spark技术栈/SparkCore/广播变量与累加器)
+        * [PySpark基本使用](/Spark技术栈/SparkCore/PySpark的基本使用)
+        * [弹性分布式数据集RDD](/Spark技术栈/SparkCore/弹性分布式数据集RDD)
+        * [Spark共享变量](/Spark技术栈/SparkCore/Spark共享变量)
     * SparkSQL
-        * [SparkSQL简介](/Spark技术栈/SparkSQL/SparkSQL)
-        * [StructType&StructField](/Spark技术栈/SparkSQL/StructType和StructField)
-        * [创建DataFrame](/Spark技术栈/SparkSQL/CreateDataFrame)
-        * [RDD与DataFrame的转换](/Spark技术栈/SparkSQL/RDDtoDataFrame)
-        * [DataFrame对行、列处理的相关函数](/Spark技术栈/SparkSQL/general)
-        * [日期与时间函数](/Spark技术栈/SparkSQL/timestamp)
+        * [SparkSQL简介](/Spark技术栈/SparkSQL/SparkSQL简介)
+        * [定义DataFrame的模式](/Spark技术栈/SparkSQL/定义DataFrame的模式)
+        * [创建DataFrame](/Spark技术栈/SparkSQL/创建DataFrame)
+        * [RDD与DataFrame的转换](/Spark技术栈/SparkSQL/RDD与DataFrame的转换)
+        * [DataFrame常用函数](/Spark技术栈/SparkSQL/DataFrame常用函数)
+        * [日期与时间函数](/Spark技术栈/SparkSQL/日期与时间函数)
     * SparkDataSource
-        * [PySpark读写csv文件](/Spark技术栈/SparkDataSource/readcsv)
+        * [PySpark读写csv文件](/Spark技术栈/SparkDataSource/PySpark读写csv文件)
+        * [PySpark读写json文件](/Spark技术栈/SparkDataSource/PySpark读写json文件)
+        * [PySpark读写parquet文件](/Spark技术栈/SparkDataSource/PySpark读写Parquet文件)
+        * [PySpark读写MySQL数据库](/Spark技术栈/SparkDataSource/PySpark读写MySQL数据库)

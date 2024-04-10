@@ -90,12 +90,23 @@ print(f"initial partition count:{rdd.getNumPartitions()}")
 
 ### 重新分区
 
-PySpark可以使用repartition()方法是对所有节点中的数据进行混洗，从而重新分区
+PySpark可以使用 `repartition()` 方法是对所有节点中的数据进行混洗，从而重新分区
+
+!> 它会对数据集进行全局洗牌操作，并将数据重新分布到指定的分区数
 
 ```python
 rdd = spark.sparkContext.textFile('hdfs://localhost:9000/spark/word.txt', 5)
 print(f"initial partition count:{rdd.getNumPartitions()}")
 repartition_rdd = rdd.repartition(10)
+print(f"repartition count:{repartition_rdd.getNumPartitions()}")
+```
+
+也可以使用 `coalesce()` 方法对数据集进行重新分区，但是它不会进行**全局混洗**操作，而是将数据重新分布到指定的分区数
+
+```python
+rdd = spark.sparkContext.textFile('hdfs://localhost:9000/spark/word.txt', 5)
+print(f"initial partition count:{rdd.getNumPartitions()}")
+repartition_rdd = rdd.coalesce(1)
 print(f"repartition count:{repartition_rdd.getNumPartitions()}")
 ```
 
