@@ -118,4 +118,7 @@
         * [PySpark读写csv文件](/Spark技术栈/SparkDataSource/PySpark读写csv文件)
         * [PySpark读写json文件](/Spark技术栈/SparkDataSource/PySpark读写json文件)
         * [PySpark读写parquet文件](/Spark技术栈/SparkDataSource/PySpark读写Parquet文件)
+        * [PySpark读写ORC文件](/Spark技术栈/SparkDataSource/PySpark读写ORC文件)
+        * [PySpark读写Parquet文件](/Spark技术栈/SparkDataSource/PySpark读写Parquet文件)
         * [PySpark读写MySQL数据库](/Spark技术栈/SparkDataSource/PySpark读写MySQL数据库)
+        * [PySpark读写Hive数据库](/Spark技术栈/SparkDataSource/PySpark读写Hive数据库)

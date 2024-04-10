@@ -1,19 +1,23 @@
 # 前言
 
-从零开始学习大数据相关知识, 主要面向初学者
+本书是一本对人类用户极其友善的大数据入门工具书, 从零开始学习大数据相关知识, 主要面向初学者
 
-* 所有 SQL 语句例子, 是基于 MySQL 5.7.19 运行的
-* 所有 Python 语句例子,  都是基于 `Python` 3.9.7或 `Python` 3.8.10 运行的
+> 本书主要是在参考官方文档, 并结合作者学习使用经验基础上整理总结写成的
+
+* 所有 SQL 语句例子, 是基于 `MySQL-5.7.19` 运行的
+* 所有 Python 语句例子, 都是基于 `Python-3.9.7` 或 `Python-3.8.10` 运行的
 
 ## 关于作者
 
 * github主页: [https://github.com/weinuozhou](https://github.com/weinuozhou/blog)
 * 知乎主页: [https://www.zhihu.com/people/pai-da-xiao-xing-xing-7](https://www.zhihu.com/people/pai-da-xiao-xing-xing-7)
 
-## 赞助我们
+## 鼓励作者
+
+如果本书对你有所帮助, 想鼓励一下作者, 记得给本项目加一颗星星 `star` , 并分享给你的朋友们喔!
 
 > [!TIP]
-> 如果您觉得本文对您有帮助的话, 您的赞赏就是我最大的支持！！
+> 当然如果可以的话, 您的赞赏就是对作者最大的支持！！
 
 <div style="text-align: center; border-collapse: collapse; border: 1px solid #ccc;">
 <table>
