@@ -10,7 +10,14 @@ MySQL数据库中包含多种不同类型的日志文件, 这些文件记录了M
 
 ### 开启错误日志
 
-在MySQL数据库中, 错误日志功能是**默认开启**的。而且, 错误日志**无法被禁止**。默认情况下, 错误日志存储在MySQL数据库的数据文件夹下。错误日志的存储位置可以通过 log-error 选项来设置。将 log-error 选项加入到my.Ini文件的\[mysqld\]组中, 形式如下: `log-error[=DIR / [filename]]`
+错误日志是 MySQL 中最重要的日志之一, 它记录了当 mysqld 启动和停止时, 以及服务器在运行过程中发生任何严重错误时的相关信息。当数据库出现任何故障导致无法正常使用时, 可以首先查看此日志
+
+该日志是**默认开启**的, 默认存放目录为 mysql 的数据目录, 默认的日志文件名为 `hostname.err` (hostname是主机名)
+错误日志的存储位置可以通过 log-error 选项来设置。将 log-error 选项加入到my.Ini文件的\[mysqld\]组中, 形式如下: `log-error[=DIR / [filename]]`
+
+```sql
+show variables like 'log_error%'; -- 查看日志位置指令 
+```
 
 !> DIR参数指定慢查询日志的存储路径
 
@@ -21,7 +28,7 @@ MySQL数据库中包含多种不同类型的日志文件, 这些文件记录了M
 
 ### 删除错误日志
 
-数据库管理员可以删除很长时间之前的错误日志, 以保证MySQL服务器上的硬盘空间。MySQL数据库中, 可以使用mysqladmin命令来开启新的错误日志。mysqladmin命令的语法如下:
+数据库管理员可以删除很长时间之前的错误日志, 以保证MySQL服务器上的硬盘空间。MySQL数据库中, 可以使用`mysqladmin`命令来开启新的错误日志。`mysqladmin`命令的语法如下:
 ```SQL
 mysqladmin -u root -p flush-logs
 ```
@@ -32,20 +39,53 @@ mysqladmin -u root -p flush-logs
 
 二进制日志也叫作变更日志(update log), 主要用于**记录数据库的变化情况**。通过二进制日志可以查询MySQL数据库中进行了哪些改变
 
+二进制日志（BINLOG）记录了所有的 DDL（数据定义语言）语句和 DML（数据操纵语言）语句, 但是不包括数据查询语句。此日志对于灾难时的数据恢复起着极其重要的作用, MySQL的主从复制, 就是通过该binlog实现的
+
 ### 启动二进制日志
 
-默认情况下, 二进制日志功能是关闭的。通过my.ini的log-bin选项可以开启二进制日志。将log-bin选项加入到my.ini文件的[mysqld]组中, 形式如下:
-```SQL
-log-bin [=DIR \ [filename]]
+> 二进制日志，MySQL8.0默认已经开启，低版本的MySQL的需要通过配置文件开启，并配置MySQL日志的格式
+
+可以使用下列命令查找查找linux系统上的mysql可执行程序所在目录
+```bash
+which mysql
 ```
 
-!> DIR参数指定慢查询日志的存储路径
+查找mysql配置文件所在路径:
+```bash
+/usr/bin/mysql --verbose --help | grep -A 1 'Default options' # 使用上述命令查询到的mysql可执行程序的目录
+```
+
+由于作者使用的MySQL版本比较低, 因此默认情况下, 二进制日志功能是关闭的。通过my.ini的log-bin选项可以开启二进制日志。将log-bin选项加入到my.cnf(my.ini)文件的[mysqld]组中, 形式如下:
+```SQL
+#配置开启binlog日志， 日志的文件前缀为 mysqlbin -----> 生成的文件名如 : mysqlbin.000001,mysqlbin.000002
+log_bin=mysqlbin
+#配置二进制日志的格式
+binlog_format=STATEMENT
+```
+
+### 日志格式
+
+* `STATEMENT`: 该日志格式在日志文件中记录的都是SQL语句（statement），每一条对数据进行修改的SQL都会记录在日志文件中，通过Mysql提供的mysqlbinlog工具，可以清晰的查看到每条语句的文本。主从复制的时候，从库（slave）会将日志解析为原文本，并在从库重新执行一次
+* `ROW`: 该日志格式在日志文件中记录的是每一行的数据变更，而不是记录SQL语句。比如，执行SQL语句: `update tb_book set status='1'` , 如果是 STATEMENT 日志格式，在日志中会记录一行SQL文件； 如果是ROW，由于是对全表进行更新，也就是每一行记录都会发生变更，ROW 格式的日志中会记录每一行的数据变更
+* `MIXED`: 混合了STATEMENT 和 ROW两种格式
 
 ### 查看二进制日志
 
 使用二进制格式可以存储更多的信息, 并且可以使写入二进制日志的效率更高。打开二进制日志的命令的语法形式如下:
 ```SQL
-mysqlbinlog  filename.number
+-- 查看MySQL是否开启了binlog日志
+show variables like 'log_bin';
+-- 查看binlog日志的格式
+show variables like 'binlog_format';
+-- 查看所有日志
+show binlog events;
+-- 查看最新的日志
+show master status;
+-- 查询指定的binlog日志
+show binlog events in 'binlog.000010';
+select * from mydb1.emp2;
+select count(*) from mydb1.emp2;
+update mydb1.emp2 set salary = 8000;
 ```
 
 ?> `mysqlbinlog` 命令将在**当前文件夹**下查找指定的二进制日志。因此需要在**二进制日志filename.number**所在的目录下运行该命令, 否则将会找不到指定的二进制日志文件

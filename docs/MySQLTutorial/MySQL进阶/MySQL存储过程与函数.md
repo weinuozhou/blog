@@ -26,18 +26,27 @@
 
 ## 存储过程与函数操作
 
+### `delimiter` 命令
+
+用 `MySQL delimiter` 来改变默认的结束标志
+
+`delimiter` 格式语法为: `delimiter $$`
+
+?> $$是用户定义的结束符，通常使用一些特殊的符号。当使用 `delimiter` 命令时，应该避免使用反斜杠\字符，因为那是 `MySQL` 转移字符
+
 ### 创建和使用存储过程
 
 创建存储过程的语法格式:
 ```sql
-create procedure sp_name ([proc_parameter[，..]])
-    [characteristic ..] routine_body                                                                          
+delimiter 自定义结束符号
+create procedure sp_name([ in ,out ,inout ] 参数名 数据类形...)
+begin
+  sql语句
+end 自定义的结束符合
+delimiter ;                                                                    
 ```
 
 * `sp_name` 参数是存储过程的名称
-* `proc_parameter` 表示存储过程的参数列表
-* `characteristic` 参数指定存储过程的特性
-* `routine_body` 参数是 `SQL` 代码的内容
 * 可以用 `begin…end` 来标志 `SQL` 代码的开始和结束
 
 调用存储过程的语法格式：
@@ -63,14 +72,6 @@ create function sp_name ([func_parameter[，..]])
 ```sql
 select sp_name([func_parameter[，…]])
 ```
-
-### `delimiter` 命令
-
-用 `MySQL delimiter` 来改变默认的结束标志
-
-`delimiter` 格式语法为: `delimiter $$`
-
-?> $$是用户定义的结束符，通常使用一些特殊的符号。当使用 `delimiter` 命令时，应该避免使用反斜杠\字符，因为那是 `MySQL` 转移字符
 
 ## 查看存储过程或函数
 

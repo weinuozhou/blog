@@ -1,23 +1,23 @@
 # 可视化分析
 
-在数据分析的过程中，一定会遇到需要针对数据进行绘图的场景。 `Matplotlib` 是支持 Python 语言的开源绘图库，因为其支持丰富的绘图类型、简单的绘图方式以及完善的接口文档，深受 Python 工程师、科研学者、数据工程师等各类人士的喜欢。 `Matplotlib` 拥有着十分活跃的社区以及稳定的版本迭代
+在数据分析的过程中, 一定会遇到需要针对数据进行绘图的场景。 `Matplotlib` 是支持 Python 语言的开源绘图库, 因为其支持丰富的绘图类型、简单的绘图方式以及完善的接口文档, 深受 Python 工程师、科研学者、数据工程师等各类人士的喜欢。 `Matplotlib` 拥有着十分活跃的社区以及稳定的版本迭代
 
 <div style="text-align: center;"><img alt='202404011930590' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404011930590.png' width=500px> </div>
 
 * 常用的可视化工具
-    * matplotlib:简单方便，适合数值作图和科学作图(论文发表)
-    * pyecharts:流程较为复杂但功能强大，图形为交互式图形，适合项目开发和商业开发(该库为国人开发)
+    * matplotlib:简单方便, 适合数值作图和科学作图(论文发表)
+    * pyecharts:流程较为复杂但功能强大, 图形为交互式图形, 适合项目开发和商业开发(该库为国人开发)
 
 ## matplotlib基本绘图
 
 作图的通用流程:
 * 选择图的类型
 * 导入展示图所需要的数据
-* 修改配置项(如标题，颜色，标记,图例等)
+* 修改配置项(如标题, 颜色, 标记,图例等)
 
 ### figure类
 
-?> matplotlib.figure模块包含figure类，它是所有plot元素的顶级容器，通过调用**figure**函数来实例化Figure对象
+?> matplotlib.figure模块包含figure类, 它是所有plot元素的顶级容器, 通过调用**figure**函数来实例化Figure对象
 
 ```python
 plt.figure(figsize=(10, 8), dpi)
@@ -35,7 +35,7 @@ plt.figure(figsize=(10, 8), dpi)
 
 Axes对象是具有数据空间的图像区域。figure对象通过调用`add_axes()`方法将Axes对象添加到图中。
 
-它返回轴对象并在位置[left, bottom, width, height]添加一个轴，Axes的参数是4个长度序列的[左，底，宽，高]的数量
+它返回轴对象并在位置[left, bottom, width, height]添加一个轴, Axes的参数是4个长度序列的[左, 底, 宽, 高]的数量
 
 ```python
 #绘制简单的正弦曲线
@@ -102,7 +102,7 @@ plt.show()
 
 ### ax.plot()
 
-作用:这是轴类最基本的用法，它将一个数组的值与另一个数组的值绘制成线或标记
+作用:这是轴类最基本的用法, 它将一个数组的值与另一个数组的值绘制成线或标记
 
 | 参数                 | 说明                             |
 | :------------------- | :------------------------------- |
@@ -137,7 +137,7 @@ plt.show()
 
 figure是用于直观性图形输出的窗口个体,层次级别最高级的对象
 
-axes是一个画图区域，也就是坐标对象，同时也确定作图的一些方式,如标题,x标签,y标签等
+axes是一个画图区域, 也就是坐标对象, 同时也确定作图的一些方式,如标题,x标签,y标签等
 
 axis对象要考虑轴上表示的数值,定义限制等
 
@@ -158,7 +158,7 @@ plt.subplot(nrows,ncols,index)
 注意:
 
 1. 该函数创建并返回一个Axes对象,索引index从$1$到$nrows\times ncols$
-2. 若nrows,ncols和index都小于10,则索引也可以作为单个，连接，三个数字给出，即subplot(2,3,3)与subplot(233)等价
+2. 若nrows,ncols和index都小于10,则索引也可以作为单个, 连接, 三个数字给出, 即subplot(2,3,3)与subplot(233)等价
 
 ```python
 fig = plt.figure(figsize=(8,6), dpi=100)
@@ -175,10 +175,10 @@ plt.show()
 plt.subplots(nrows,ncols)
 ```
 
-作用:该函数返回一个图形对象和一个包含$nrows\times ncols$的轴对象的元组，每个轴对象可以通过索引访问
+作用:该函数返回一个图形对象和一个包含$nrows\times ncols$的轴对象的元组, 每个轴对象可以通过索引访问
 
 ```python
-ax, axlist = plt.subplots(2, 2) # ax为图形对象，axlist为轴对象
+ax, axlist = plt.subplots(2, 2) # ax为图形对象, axlist为轴对象
 x = np.arange(1,10)
 axlist[0][0].plot(x,x*x,color='b')
 axlist[0][1].plot(x,np.exp(x),color='g')
@@ -191,7 +191,7 @@ plt.show()
 
 `subplot2grid()`
 
-特点；创建轴对象提供了更大的灵活性，允许轴对象跨越多个行或列
+特点；创建轴对象提供了更大的灵活性, 允许轴对象跨越多个行或列
 
 | 参数    | 描述               |
 | :------ | :----------------- |
@@ -218,7 +218,7 @@ plt.show()
 
 ### 网格
 
-axes对象中的grid()函数可以设置网格,具体参数如下：
+axes对象中的grid()函数可以设置网格,具体参数如下: 
 
 | 参数          | 描述                                       |
 | :------------ | :----------------------------------------- |
@@ -246,7 +246,7 @@ axlist[1][1].plot(x,np.sqrt(x))
 
 ### `fmt`参数
 
-fmt 参数定义了基本格式，如标记、线条样式和颜色
+fmt 参数定义了基本格式, 如标记、线条样式和颜色
 
 | color | 颜色          |
 | :---- | :------------ |
@@ -327,25 +327,25 @@ ax.set_ylabel(ylabel = 'y',rotation = 0,labelpad = 20)
 
 #### 设置刻度线
 
-* `plt.tick_params()` 是matplotlib中pyplot模块的一个函数，用于设置刻度线和标签的参数。以下是tick_params()函数可接受的参数及其意义：
-* axis（字符串或字符串列表）：可选参数，指定要设置的轴。可以是以下值之一：
-    * `x`：x轴
-    * `y`：y轴
-    * `both`：同时设置x轴和y轴,默认为`both`
-* which（字符串）：可选参数，指定要设置的刻度线类型。可以是以下值之一：
-    * `major`：主刻度线
-    * `minor`：次刻度线
-    * `both`：同时设置主刻度线和次刻度线,默认为`both`。
-* direction（字符串）：可选参数，指定刻度线的方向。可以是以下值之一：
-    * `in`：刻度线朝内
-    * `out`：刻度线朝外
-    * `inout`：刻度线朝内外都有,默认为`inout`。
-* length（浮点数）：可选参数，指定刻度线的长度。默认为4。
-* width（浮点数）：可选参数，指定刻度线的宽度。默认为1。
-* color（字符串或元组）：可选参数，指定刻度线的颜色。：
-    * 可以是单一颜色或者是一个表示RGB颜色的元组，例如(0.5, 0.5, 0.5)代表灰色。默认为'black'。
-* pad（浮点数）：可选参数，指定刻度线与标签之间的间距。默认为4。
-* labelsize（字符串或整数）：可选参数，指定刻度标签的字体大小。默认为None，表示使用默认字体大小。
+* `plt.tick_params()` 是matplotlib中pyplot模块的一个函数, 用于设置刻度线和标签的参数。以下是tick_params()函数可接受的参数及其意义: 
+* axis（字符串或字符串列表）: 可选参数, 指定要设置的轴。可以是以下值之一: 
+    * `x`: x轴
+    * `y`: y轴
+    * `both`: 同时设置x轴和y轴,默认为`both`
+* which（字符串）: 可选参数, 指定要设置的刻度线类型。可以是以下值之一: 
+    * `major`: 主刻度线
+    * `minor`: 次刻度线
+    * `both`: 同时设置主刻度线和次刻度线,默认为`both`。
+* direction（字符串）: 可选参数, 指定刻度线的方向。可以是以下值之一: 
+    * `in`: 刻度线朝内
+    * `out`: 刻度线朝外
+    * `inout`: 刻度线朝内外都有,默认为`inout`。
+* length（浮点数）: 可选参数, 指定刻度线的长度。默认为4。
+* width（浮点数）: 可选参数, 指定刻度线的宽度。默认为1。
+* color（字符串或元组）: 可选参数, 指定刻度线的颜色。: 
+    * 可以是单一颜色或者是一个表示RGB颜色的元组, 例如(0.5, 0.5, 0.5)代表灰色。默认为'black'。
+* pad（浮点数）: 可选参数, 指定刻度线与标签之间的间距。默认为4。
+* labelsize（字符串或整数）: 可选参数, 指定刻度标签的字体大小。默认为None, 表示使用默认字体大小。
 
 ```python
 x = np.array(["C", "C++", "Python", "PHP"])
@@ -361,10 +361,10 @@ plt.show()
 
 #### 设置网格
 
-* `ax.xaxis.grid`用于设置x轴的网格，具体参数如下:
-* `b`：是否显示网格线。布尔值或None，可选参数。如果没有关键字参数，则b为True，如果b为None且没有关键字参数，相当于切换网格线的可见性
-* `which`：网格线显示的尺度。字符串，可选参数，取值范围为{'major', 'minor', 'both'}，'major'为主刻度、'minor'为次刻度,默认为'major'
-* `**kwargs`：其他参数,例如:color,linewidth(lw),linestyle(ls),详情请见上文`ax.plot()`
+* `ax.xaxis.grid`用于设置x轴的网格, 具体参数如下:
+* `b`: 是否显示网格线。布尔值或None, 可选参数。如果没有关键字参数, 则b为True, 如果b为None且没有关键字参数, 相当于切换网格线的可见性
+* `which`: 网格线显示的尺度。字符串, 可选参数, 取值范围为{'major', 'minor', 'both'}, 'major'为主刻度、'minor'为次刻度,默认为'major'
+* `**kwargs`: 其他参数,例如:color,linewidth(lw),linestyle(ls),详情请见上文`ax.plot()`
 
 ```python
 x = np.array(["C", "C++", "Python", "PHP"])
@@ -381,20 +381,20 @@ plt.show()
 
 #### 设置标题和副标题
 
-`ax.set_title()`方法用于设置图表的标题，参数如下:
+`ax.set_title()`方法用于设置图表的标题, 参数如下:
 * `label`:设置标题文本
 * `fondict`:设置标题的字体样式
-* `loc`：设置标题的位置,取值有`center`,`left`和`right`
-* `pad`：设置标题与轴标签之间的间距,默认为6
-* `**kwargs`：其他参数,fontsize、color、backgroudcolor等
+* `loc`: 设置标题的位置,取值有`center`,`left`和`right`
+* `pad`: 设置标题与轴标签之间的间距,默认为6
+* `**kwargs`: 其他参数,fontsize、color、backgroudcolor等
 
-`suptitle`用于设置标题，参数如下:
-* `t` ：字符串类型，表示要设置的图形标题内容
-* x 和 y：浮点数类型，表示标题的 x 轴和 y 轴方向上的位置。如果未指定，则默认为 0.5
-* `fontweight` ：可选的字符串类型或整数类型，表示标题的字体粗细。常用的取值有 "normal"（正常）和 "bold"（加粗）。也可以是数字类型，表示粗细的程度，默认为 "normal"
-* `fontsize` ：可选的字符串类型或整数类型，表示标题的字号大小。常用的取值为 "medium"（中等）、"large"（大号）和 "x-large"（特大号），也可以是整数类型，表示具体的字号大小，默认为 "medium"
-* `fontstyle` ：可选的字符串类型，表示标题的字体样式。常用的取值有 "normal"（正常）和 "italic"（斜体），默认为 "normal"
-* `color` ：可选的字符串类型，表示标题的颜色。常用的取值有 "b"（蓝色）、"g"（绿色）、"r"（红色）、"c"（青色）等等，也可以使用 RGB 格式来指定颜色，默认为 None
+`suptitle`用于设置标题, 参数如下:
+* `t` : 字符串类型, 表示要设置的图形标题内容
+* `x` 和 `y`: 浮点数类型, 表示标题的 x 轴和 y 轴方向上的位置。如果未指定, 则默认为 0.5
+* `fontweight` : 可选的字符串类型或整数类型, 表示标题的字体粗细。常用的取值有 "normal"（正常）和 "bold"（加粗）。也可以是数字类型, 表示粗细的程度, 默认为 "normal"
+* `fontsize` : 可选的字符串类型或整数类型, 表示标题的字号大小。常用的取值为 "medium"（中等）、"large"（大号）和 "x-large"（特大号）, 也可以是整数类型, 表示具体的字号大小, 默认为 "medium"
+* `fontstyle` : 可选的字符串类型, 表示标题的字体样式。常用的取值有 "normal"（正常）和 "italic"（斜体）, 默认为 "normal"
+* `color` : 可选的字符串类型, 表示标题的颜色。常用的取值有 "b"（蓝色）、"g"（绿色）、"r"（红色）、"c"（青色）等等, 也可以使用 RGB 格式来指定颜色, 默认为 None
 * `backgroundcolor` :背景颜色
 
 ```python
@@ -422,8 +422,8 @@ plt.bar(x, height, width, bottom=None,align='center',**kwargs)
 | :------- | :----------------------------------------- |
 | x        | 浮点型数组,柱形图的x轴数据                 |
 | height   | 浮点型数组,柱形图的高度                    |
-| width    | 浮点型数组，柱形图的宽度,默认为0.8         |
-| bottom   | 浮点型数组，底座的y坐标,默认为0            |
+| width    | 浮点型数组, 柱形图的宽度,默认为0.8         |
+| bottom   | 浮点型数组, 底座的y坐标,默认为0            |
 | align    | 柱形图与x坐标的对齐方式,center(默认)或edge |
 | **kwargs | 其他参数,如颜色等                          |
 
@@ -541,8 +541,8 @@ plt.barh(x,height,width,bottom,align,**kwargs)
 | :------- | :----------------------------------------- |
 | x        | 浮点型数组,柱形图的x轴数据                 |
 | height   | 浮点型数组,柱形图的宽度,默认为0.8          |
-| width    | 浮点型数组，柱形图的高度                   |
-| bottom   | 浮点型数组，底座的x坐标,默认为0            |
+| width    | 浮点型数组, 柱形图的高度                   |
+| bottom   | 浮点型数组, 底座的x坐标,默认为0            |
 | align    | 柱形图与y坐标的对齐方式,center(默认)或edge |
 | **kwargs | 其他参数,如颜色等                          |
 
@@ -574,12 +574,12 @@ plt.scatter(x,y,s=None,c=None,marker=None,cmap=None,norm=None,vmin=None,vmax=Non
 | c             | 点的颜色,默认蓝色 'b'                                                                 |
 | marker        | 点的样式,默认小圆圈 'o'                                                               |
 | cmap          | Colormap,颜色条,默认None,标量或者是一个colormap的名字,只有c是一个浮点数数组的时才使用 |
-| norm          | Normalize默认None,数据亮度在 0-1 之间，只有c是一个浮点数的数组的时才使用              |
-| vmin，vmax    | 亮度设置，在 norm 参数存在时会忽略                                                    |
-| alpha         | 透明度设置，0-1 之间，默认 None，即不透明                                             |
+| norm          | Normalize默认None,数据亮度在 0-1 之间, 只有c是一个浮点数的数组的时才使用              |
+| vmin, vmax    | 亮度设置, 在 norm 参数存在时会忽略                                                    |
+| alpha         | 透明度设置, 0-1 之间, 默认 None, 即不透明                                             |
 | linewidths    | 标记点的长度                                                                          |
-| edgecolors    | 颜色或颜色序列，默认为 'face'，可选值有 'face', 'none', None                          |
-| plotnonfinite | 布尔值，设置是否使用非限定的 c ( inf, -inf 或 nan) 绘制点                             |
+| edgecolors    | 颜色或颜色序列, 默认为 'face', 可选值有 'face', 'none', None                          |
+| plotnonfinite | 布尔值, 设置是否使用非限定的 c ( inf, -inf 或 nan) 绘制点                             |
 | **kwargs      | 其他参数                                                                              |
 
 cmap参数详情请见:[颜色条参数](https://www.runoob.com/matplotlib/matplotlib-scatter.html)
@@ -618,22 +618,22 @@ plt.scatter(x, y, s=None, c=None,marker=None,cmap=None,norm=None,vmin=None,vmax=
 
 | 参数          | 描述                                                                                                                  |
 | :------------ | :-------------------------------------------------------------------------------------------------------------------- |
-| x             | 浮点型数组，表示每个扇形的面积                                                                                        |
-| explode       | 数组，表示各个扇形之间的间隔，默认值为0                                                                               |
-| labels        | 列表，各个扇形的标签，默认值为 None                                                                                   |
-| colors        | 数组，表示各个扇形的颜色，默认值为 None                                                                               |
-| autopct       | 设置饼图内各个扇形百分比显示格式，%d%% 整数百分比,%0.1f一位小数,%0.1f%%一位小数百分比,%0.2f%% 两位小数百分比          |
-| labeldistance | 标签标记的绘制位置，相对于半径的比例，默认值为 1.1，如 <1则绘制在饼图内侧。                                           |
-| pctdistance   | 类似于labeldistance，指定autopct的位置刻度，默认值为 0.6                                                              |
-| shadow        | 布尔值True或False,设置饼图的阴影，默认为 False，不设置阴影                                                            |
-| radius        | 设置饼图的半径，默认为 1。                                                                                            |
-| startangle    | 起始绘制饼图的角度，默认为从x轴正方向逆时针画起，如设定=90 则从y轴正方向画起                                          |
-| counterclock  | 布尔值，设置指针方向，默认为 True，即逆时针，False 为顺时针。                                                         |
-| wedgeprops    | 字典类型，默认值 None。参数字典传递给 wedge 对象用来画一个饼图。例如：wedgeprops={'linewidth':5} 设置 wedge 线宽为5。 |
-| textprops     | 字典类型，默认值为：None。传递给 text 对象的字典参数，用于设置标签（labels）和比例文字的格式。                        |
-| center        | 浮点类型的列表，默认值：(0,0)。用于设置图标中心位置。                                                                 |
-| frame         | 布尔类型，默认值：False。如果是 True，绘制带有表的轴框架。                                                            |
-| rotatelabels  | 布尔类型，默认为 False。如果为 True，旋转每个 label 到指定的角度                                                      |
+| x             | 浮点型数组, 表示每个扇形的面积                                                                                        |
+| explode       | 数组, 表示各个扇形之间的间隔, 默认值为0                                                                               |
+| labels        | 列表, 各个扇形的标签, 默认值为 None                                                                                   |
+| colors        | 数组, 表示各个扇形的颜色, 默认值为 None                                                                               |
+| autopct       | 设置饼图内各个扇形百分比显示格式, %d%% 整数百分比,%0.1f一位小数,%0.1f%%一位小数百分比,%0.2f%% 两位小数百分比          |
+| labeldistance | 标签标记的绘制位置, 相对于半径的比例, 默认值为 1.1, 如 <1则绘制在饼图内侧。                                           |
+| pctdistance   | 类似于labeldistance, 指定autopct的位置刻度, 默认值为 0.6                                                              |
+| shadow        | 布尔值True或False,设置饼图的阴影, 默认为 False, 不设置阴影                                                            |
+| radius        | 设置饼图的半径, 默认为 1。                                                                                            |
+| startangle    | 起始绘制饼图的角度, 默认为从x轴正方向逆时针画起, 如设定=90 则从y轴正方向画起                                          |
+| counterclock  | 布尔值, 设置指针方向, 默认为 True, 即逆时针, False 为顺时针。                                                         |
+| wedgeprops    | 字典类型, 默认值 None。参数字典传递给 wedge 对象用来画一个饼图。例如: wedgeprops={'linewidth':5} 设置 wedge 线宽为5。 |
+| textprops     | 字典类型, 默认值为: None。传递给 text 对象的字典参数, 用于设置标签（labels）和比例文字的格式。                        |
+| center        | 浮点类型的列表, 默认值: (0,0)。用于设置图标中心位置。                                                                 |
+| frame         | 布尔类型, 默认值: False。如果是 True, 绘制带有表的轴框架。                                                            |
+| rotatelabels  | 布尔类型, 默认为 False。如果为 True, 旋转每个 label 到指定的角度                                                      |
 
 ```python
 fig = plt.figure(figsize=(6, 4))
@@ -666,7 +666,6 @@ explode = [0.1, 0, 0]
 angle = -180 * overall_ratios[0]
 wedges, *_ = ax1.pie(overall_ratios, autopct='%1.1f%%', startangle=angle,
                      labels=labels, explode=explode)
-
 # bar chart parameters
 age_ratios = [.33, .54, .07, .06]
 age_labels = ['Under 35', '35-49', '50-65', 'Over 65']
@@ -684,12 +683,10 @@ ax2.set_title('Age of approvers')
 ax2.legend()
 ax2.axis('off')
 ax2.set_xlim(- 2.5 * width, 2.5 * width)
-
 # use ConnectionPatch to draw lines between the two plots
 theta1, theta2 = wedges[0].theta1, wedges[0].theta2
 center, r = wedges[0].center, wedges[0].r
 bar_height = sum(age_ratios)
-
 # draw top connecting line
 x = r * np.cos(np.pi / 180 * theta2) + center[0]
 y = r * np.sin(np.pi / 180 * theta2) + center[1]
@@ -698,7 +695,6 @@ con = ConnectionPatch(xyA=(-width / 2, bar_height), coordsA=ax2.transData,
 con.set_color([0, 0, 0])
 con.set_linewidth(4)
 ax2.add_artist(con)
-
 # draw bottom connecting line
 x = r * np.cos(np.pi / 180 * theta1) + center[0]
 y = r * np.sin(np.pi / 180 * theta1) + center[1]
@@ -707,7 +703,6 @@ con = ConnectionPatch(xyA=(-width / 2, 0), coordsA=ax2.transData,
 con.set_color([0, 0, 0])
 ax2.add_artist(con)
 con.set_linewidth(4)
-
 plt.show()
 ```
 
@@ -717,20 +712,15 @@ plt.show()
 
 ```python
 fig, ax = plt.subplots()
-
 size = 0.3
 vals = np.array([[60., 32.], [37., 40.], [29., 10.]])
-
 cmap = plt.colormaps["tab20c"]
 outer_colors = cmap(np.arange(3)*4)
 inner_colors = cmap([1, 2, 5, 6, 9, 10])
-
 ax.pie(vals.sum(axis=1), radius=1, colors=outer_colors,
        wedgeprops=dict(width=size, edgecolor='w'))
-
 ax.pie(vals.flatten(), radius=1-size, colors=inner_colors,
        wedgeprops=dict(width=size, edgecolor='w'))
-
 ax.set(aspect="equal", title='Pie plot with `ax.pie`')
 plt.show()
 ```
@@ -739,7 +729,7 @@ plt.show()
 
 ### 箱线图
 
-箱线图也叫须状图，显示包含最小值，第一四分位数，中位数，第三四分位数和最大值的一组数据的摘要
+箱线图也叫须状图, 显示包含最小值, 第一四分位数, 中位数, 第三四分位数和最大值的一组数据的摘要
 
 ```python
 plt.boxplot(x,notch,sym,vert,whis,positions,
@@ -752,25 +742,25 @@ plt.boxplot(x,notch,sym,vert,whis,positions,
 | 参数         | 描述                                                  |
 | :----------- | :---------------------------------------------------- |
 | x            | 要绘制箱线图的数据                                    |
-| notch        | 是否是凹口的形式展现箱线图，默认非凹口；              |
-| sym          | 指定异常点的形状，默认为+号显示；                     |
-| vert         | 是否需要将箱线图垂直摆放，默认垂直摆放；              |
-| whis         | 指定上下须与上下四分位的距离，默认为1.5倍的四分位差； |
+| notch        | 是否是凹口的形式展现箱线图, 默认非凹口；              |
+| sym          | 指定异常点的形状, 默认为+号显示；                     |
+| vert         | 是否需要将箱线图垂直摆放, 默认垂直摆放；              |
+| whis         | 指定上下须与上下四分位的距离, 默认为1.5倍的四分位差； |
 | positions    | 指定箱线图的位置                                      |
-| widths       | 指定箱线图的宽度，默认为0.5；                         |
+| widths       | 指定箱线图的宽度, 默认为0.5；                         |
 | patch_artist | 是否填充箱体的颜色；                                  |
-| meanline     | 是否用线的形式表示均值，默认用点来表示；              |
-| showmeans    | 是否显示均值，默认不显示；                            |
-| showcaps     | 是否显示箱线图顶端和末端的两条线，默认显示；          |
-| showbox      | 是否显示箱线图的箱体，默认显示；                      |
-| showfliers   | 是否显示异常值，默认显示；                            |
-| boxprops     | 设置箱体的属性，如边框色，填充色等；                  |
-| labels       | 为箱线图添加标签，类似于图例的作用；                  |
-| flierprops   | 设置异常值的属性，如异常点的形状、大小、填充色等      |
-| medianprops  | 设置中位数的属性，如线的类型、粗细等；                |
-| meanprops    | 设置均值的属性，如点的大小、颜色等；                  |
-| capprops     | 设置箱线图顶端和末端线条的属性，如颜色、粗细等；      |
-| whiskerprops | 设置须的属性，如颜色、粗细、线的类型等                |
+| meanline     | 是否用线的形式表示均值, 默认用点来表示；              |
+| showmeans    | 是否显示均值, 默认不显示；                            |
+| showcaps     | 是否显示箱线图顶端和末端的两条线, 默认显示；          |
+| showbox      | 是否显示箱线图的箱体, 默认显示；                      |
+| showfliers   | 是否显示异常值, 默认显示；                            |
+| boxprops     | 设置箱体的属性, 如边框色, 填充色等；                  |
+| labels       | 为箱线图添加标签, 类似于图例的作用；                  |
+| flierprops   | 设置异常值的属性, 如异常点的形状、大小、填充色等      |
+| medianprops  | 设置中位数的属性, 如线的类型、粗细等；                |
+| meanprops    | 设置均值的属性, 如点的大小、颜色等；                  |
+| capprops     | 设置箱线图顶端和末端线条的属性, 如颜色、粗细等；      |
+| whiskerprops | 设置须的属性, 如颜色、粗细、线的类型等                |
 
 ```python
 fig = plt.figure(figsize=(8,6))
