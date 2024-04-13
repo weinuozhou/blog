@@ -13,4 +13,4 @@
 [![](https://badgen.net/github/stars/weinuozhou/blog)](https://github.com/weinuozhou/blog)
 
 [Github](https://github.com/weinuozhou/blog)
-[Get Started](#前言)
+[Get Started](/README)
