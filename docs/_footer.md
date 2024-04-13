@@ -5,5 +5,3 @@ Info Support <a href="https://docsify.js.org/#/" target="_blank">docsify</a><br>
 Terms of Use Privacy Policy<br>
 © 2024 weno
 </div>
-
-
