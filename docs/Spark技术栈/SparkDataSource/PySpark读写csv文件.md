@@ -5,7 +5,7 @@
 在PySpark中，可以使用`read.csv()`方法将CSV文件读入DataFrame
 
 ```python
-spark.read_csv(path, header, inferSchema, sep, nullValue, mode)
+spark.read.csv(path, header, inferSchema, sep, nullValue, mode)
 ```
 
 - `path`: CSV文件的路径, 可以是本地文件系统或者hdfs文件系统
@@ -16,7 +16,7 @@ spark.read_csv(path, header, inferSchema, sep, nullValue, mode)
 - `mode`: 确定如何处理解析错误的参数，默认为`"PERMISSIVE"`, 将错误的记录放入一个单独的列
 
 ```python
-df = spark.read_csv('../data/spark/iris.csv', header=True, inferSchema=True, sep=',', nullValue='', mode='PERMISSIVE')
+df = spark.read.csv('../data/spark/iris.csv', header=True, inferSchema=True, sep=',', nullValue='', mode='PERMISSIVE')
 df.printSchema()
 ```
 

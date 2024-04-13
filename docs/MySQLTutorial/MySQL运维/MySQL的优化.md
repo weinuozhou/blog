@@ -17,8 +17,7 @@ MySQL 客户端连接成功后，通过 `show [session|global] status` 命令可
 show session status like 'Com_______';  -- 查看当前会话统计结果
 show global  status  like 'Com_______';  -- 查看自数据库上次启动至今统计结果
 show status like 'Innodb_rows_%';       -- 查看针对Innodb引擎的统计结果
-
- ```
+```
 
 <div style="text-align: center;"><img alt='202404112010750' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404112010750.png' width=500px> </div>
 
