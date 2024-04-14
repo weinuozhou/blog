@@ -19,17 +19,39 @@
   <!-- 左侧侧边栏 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
   <style>
-    /* 一级标题的样式 */
+
+    /* 标题的样式 */
     .markdown-section h1 {
       font-size: 36px;
       text-align: center;
     }
-
+    .markdown-section h1 a > span {
+      color: #206864;
+      border-bottom: 1px solid #eee;
+    }
+    .markdown-section h2 a > span {
+      color: #1c8d6c;
+      border-bottom: 1px solid #eee;
+    }
+    .markdown-sectio n h2 {
+      font-size: 32px;
+    }
+    .markdown-section h3 {
+      font-size: 28px;
+    }
+    .markdown-section h4 {
+      font-size: 24px;
+    }
+    .markdown-section h5 {
+      font-size: 20px;
+    }
+    .markdown-section h6 {
+      font-size: 18px;
+    }
     /* 加重描述 strong*/
     .markdown-section strong {
       color: rgb(239, 112, 96);
     }
-
     /* 倾斜 em*/
     .markdown-section em {
       font-style: italic;
@@ -44,7 +66,6 @@
       display: inline-block;
       /* 确保转换效果生效 */
     }
-
     /* 链接 */
     .markdown-section a:not(:hover) {
       text-decoration: none;
