@@ -19,39 +19,47 @@
   <!-- 左侧侧边栏 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
   <style>
-
     /* 标题的样式 */
     .markdown-section h1 {
       font-size: 36px;
       text-align: center;
     }
-    .markdown-section h1 a > span {
+
+    .markdown-section h1 a>span {
       color: #206864;
       border-bottom: 1px solid #eee;
     }
-    .markdown-section h2 a > span {
+
+    .markdown-section h2 a>span {
       color: #1c8d6c;
       border-bottom: 1px solid #eee;
     }
+
     .markdown-sectio n h2 {
       font-size: 32px;
     }
+
     .markdown-section h3 {
       font-size: 28px;
     }
+
     .markdown-section h4 {
       font-size: 24px;
     }
+
     .markdown-section h5 {
       font-size: 20px;
     }
+
     .markdown-section h6 {
       font-size: 18px;
     }
+
     /* 加重描述 strong*/
     .markdown-section strong {
       color: rgb(239, 112, 96);
     }
+
     /* 倾斜 em*/
     .markdown-section em {
       font-style: italic;
@@ -66,6 +74,7 @@
       display: inline-block;
       /* 确保转换效果生效 */
     }
+
     /* 链接 */
     .markdown-section a:not(:hover) {
       text-decoration: none;
@@ -158,7 +167,7 @@
 
 <body>
   <div id="app">
-    <div>🏃‍🏃‍🏃‍💨 Loading...</div>
+    <div>Loading...</div>
     <div>
       <img src="coverpage.png" alt="coverpage">
     </div>
@@ -169,10 +178,7 @@
       name: "weinuo's NoteBook",
       repo: 'https://github.com/weinuozhou/blog',
       loadNavbar: true,
-      // 开启侧边栏，需要目录下有_sidebar.md文件
-      loadSidebar: true,
-      // 读取md文件中最大几级目录
-      subMaxLevel: 2,
+      subMaxLevel: 6,
       // 切换页面后跳回页面顶部
       auto2top: true,
       //开启封面页，需要目录下有_coverpage.md文件
@@ -191,12 +197,13 @@
       // -----------------------------------------------------
       // 搜索配置
       search: {
-        maxAge: 8640000,
         paths: 'auto',
-        placeholder: '搜索',
+        placeholder: '搜索...',
         noData: '找不到结果...换个关键词试试',
         depth: 6,
+        maxAge: 86400000,
         hideOtherSidebarContent: false,
+
       },
       // 字数插件
       count: {
@@ -258,7 +265,7 @@
     }
   </script>
   <!-- docsify依赖插件 -->
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <!-- 数学公式渲染 -->
   <script src="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/marked@4"></script>
@@ -269,20 +276,16 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <!-- 全文搜索插件 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- sql代码高亮 -->
+  <!-- 代码高亮 -->
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
   <!-- 文本高亮 -->
   <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
-  <!-- 页脚信息 -->
-  <script src="//cdn.jsdelivr.net/npm/@alertbox/docsify-footer/dist/docsify-footer.min.js"></script>
   <!-- 自动添加空格 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
   <!-- 字数统计插件 -->
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-  <!-- 左侧侧边栏 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
   <!-- gittalk评论 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
@@ -292,8 +295,8 @@
   <!-- 长代码进行隐藏 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-hide-code/dist/docsify-hide-code.min.js"></script>
   <!-- 回到顶部功能 -->
-  <script src="https://notebook.js.org/plugin/jquery.js"></script>
-  <script src="https://notebook.js.org/plugin/jquery.goup.js"></script>
+  <script src="https://github.com/weinuozhou/blog/tree/main/static/js/jquery.js"></script>
+  <script src="https://github.com/weinuozhou/blog/tree/main/static/js/jquery.goup.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
       $.goup({
@@ -306,9 +309,7 @@
     });
   </script>
   <!-- mouse click -->
-  <script>
-    !function (e, t, a) { function r(e) { var a = t.createElement("div"); a.className = "heart", n.push({ el: a, x: e.clientX - 5, y: e.clientY - 5, scale: 1, alpha: 1, color: "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")" }), t.body.appendChild(a) } var n = []; e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) { setTimeout(e, 1e3 / 60) }, function (e) { var a = t.createElement("style"); a.type = "text/css"; try { a.appendChild(t.createTextNode(e)) } catch (t) { a.styleSheet.cssText = e } t.getElementsByTagName("head")[0].appendChild(a) }(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), function () { var t = "function" == typeof e.onclick && e.onclick; e.onclick = function (e) { t && t(), r(e) } }(), function e() { for (var a = 0; a < n.length; a++)n[a].alpha <= 0 ? (t.body.removeChild(n[a].el), n.splice(a, 1)) : (n[a].y--, n[a].scale += .004, n[a].alpha -= .013, n[a].el.style.cssText = "left:" + n[a].x + "px;top:" + n[a].y + "px;opacity:" + n[a].alpha + ";transform:scale(" + n[a].scale + "," + n[a].scale + ") rotate(45deg);background:" + n[a].color + ";z-index:99999"); requestAnimationFrame(e) }() }(window, document);
-  </script>
+  <script src="https://github.com/weinuozhou/blog/tree/main/static/js/click_mouse.js"></script>
 </body>
 
 </html>
