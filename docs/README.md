@@ -11,11 +11,10 @@
 
 ### 大数据技术概述
 
-* [大数据技术概述](/大数据技术)
-
+* [大数据技术概述](/Intro/)
 ### 大数据相关软件安装
 
-* [大数据软件安装包](/softwareInstall/software)
+* [大数据软件安装包](/softwareInstall/)
 * [zookeeper集群环境搭建](/softwareInstall/zookeeper集群环境搭建)
 * [Hadoop集群环境搭建](/softwareInstall/Hadoop集群环境安装)
 * [Spark集群环境搭建](/softwareInstall/Spark集群环境搭建)
@@ -23,7 +22,7 @@
 ### MySQL 基础
 
 * **`MySQL` 概述**
-    * [数据库概述](/MySQLTutorial/MySQL概述/数据库概述)
+    * [数据库概述](/MySQLTutorial/)
     * [信息与数据模型](/MySQLTutorial/MySQL概述/信息与数据模型)
     * [关系代数及关系数据库理论](/MySQLTutorial/MySQL概述/关系代数及关系数据库理论)
     * [MySQL概述](/MySQLTutorial/MySQL概述/MySQL概述)
@@ -53,7 +52,7 @@
 ### Python 基础
 
 * **`Python` 基础**
-    * [Python入门](/Python0to1/intro)
+    * [Python入门](/Python0to1/)
     * [数据结构](/Python0to1/DataStructure)
     * [函数式编程](/Python0to1/function)
     * [面向对象编程](/Python0to1/oop)
@@ -62,7 +61,7 @@
     * [正则表达式](/Python0to1/regex)
     * [内置模块](/Python0to1/internalmodule)
 * **数据分析**
-    * [Pandas--数据探索](/Analysis/数据探索)
+    * [Pandas--数据探索](/Analysis/)
     * [Pandas--数据结构](/Analysis/数据结构)
     * [Pandas--数据清洗与集成](/Analysis/数据清洗与集成)
     * [Numpy](/Analysis/numpy)
@@ -72,7 +71,7 @@
     * [Pyecharts](/Viewer/pyecharts)
     * [Seaborn](/Viewer/seaborn)
 * **`Python` 爬虫**
-    * [爬虫基础](/Spiders/preface)
+    * [爬虫基础](/Spiders/)
     * [web前端知识](/Spiders/web)
     * [网络通讯](/Spiders/webConnect)
     * [发送请求](/Spiders/request)
@@ -83,11 +82,11 @@
     * [数据存储](/Spiders/saveData)
     * [Scrapy框架](/Spiders/scrapy)
 * **机器学习**
-    * [机器学习与数据挖掘基础](/machinelearning/机器学习与数据挖掘基础)
+    * [机器学习与数据挖掘基础](/machinelearning/)
 
 ### Linux 基础
 
-* [Linux操作系统简介](/Linux/intro)
+* [Linux操作系统简介](/Linux/)
 * **`Linux` 命令基础**
     * [Linux文件与目录管理](/Linux/linux命令基础/Linux文件与目录管理)
     * [Linux文件权限与归属](/Linux/linux命令基础/Linux文件基本属性)
@@ -104,7 +103,7 @@
 
 ### 非关系型数据库--NoSQL
 
-* [NoSQL简介](/NoSQL/NoSQL)
+* [NoSQL简介](/NoSQL/)
 * [Redis](/NoSQL/redis)
 * [MongoDB](/NoSQL/mongodb)
 
@@ -125,7 +124,7 @@
 ### 数据仓库应用--Hive
 
 * **`Hive` 技术栈**
-    * [数据仓库基础](/Hive技术栈/数据仓库基础)
+    * [数据仓库基础](/Hive技术栈/)
     * [OLAP与多维数据模型](/Hive技术栈/OLAP与多维数据模型)
     * [数据仓库架构](/Hive技术栈/数据仓库架构)
     * [Hive简介](/Hive技术栈/Hive入门)
@@ -134,7 +133,7 @@
 
 * **`Spark` 技术栈**
     * **`SparkCore`**
-        * [Spark简介](/Spark技术栈/SparkCore/Spark运行模式简介)
+        * [Spark简介](/Spark技术栈/)
         * [Spark部署模式与作业提交](/Spark技术栈/SparkCore/spark部署模式与提交运行)
         * [PySpark基本使用](/Spark技术栈/SparkCore/PySpark的基本使用)
         * [弹性分布式数据集RDD](/Spark技术栈/SparkCore/弹性分布式数据集RDD)

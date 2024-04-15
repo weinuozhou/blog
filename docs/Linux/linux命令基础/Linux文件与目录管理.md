@@ -2,15 +2,10 @@
 
 我们知道 Linux 的目录结构为树状结构，最顶级的目录为根目录 /
 
-<dl style="background-color: aqua">
-    <dt style="font-style: normal">绝对路径</dt>
-    <dd>由根目录 / 写起，例如： /usr/share/doc 这个目录</dd>
-</dl>
+?> 绝对路径: 由根目录 / 写起，例如： /usr/share/doc 这个目录
 
-<dl style="background-color: #FFCDD2">
-    <dt style="font-style: normal">相对路径</dt>
-    <dd>例如由 /usr/share/doc 要到 /usr/share/man 底下时，可以写成： cd ../man 这就是相对路径的写法</dd>
-</dl>
+?> 相对路径: 例如由 /usr/share/doc 要到 /usr/share/man 底下时，可以写成： cd ../man 这就是相对路径的写法
+
 
 ## 目录切换
 
@@ -137,15 +132,9 @@
 
 为文件创建链接: [ln命令详解](https://wangchujiang.com/linux-command/c/ln.html)
 
-<dl style="background-color: aqua">
-    <dt style="font-style: normal">软连接</dt>
-    <dd>删除源，另一个无法使用</dd>
-</dl>
+?> 软连接: 删除源，另一个无法使用
 
-<dl style="background-color: blue">
-    <dt style="font-style: normal">硬链接</dt>
-    <dd>删除一个，将仍能找到</dd>
-</dl>
+?> 硬链接: 删除一个，将仍能找到
 
 * 创建软链接(在目录/usr/liu下建立一个符号链接文件abc，使它指向目录/usr/mengqc/mub1)
     * `ln -s /usr/mengqc/mub1 /usr/liu/abc`
