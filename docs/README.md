@@ -176,11 +176,11 @@
     </thead>
     <tbody>
         <tr>
-            <td style="background-color: #f2f2f2; padding: 10px;">
-              <img alt='wechat' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404012044090.png' width=50% style="text-align:center">
+            <td style="background-color: #f2f2f2; padding: 10px; text-align:center">
+              <img alt='wechat' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404012044090.png' width=50% >
             </td>
-            <td style="background-color: #f2f2f2; padding: 10px;">
-                <img alt='pay' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404012044946.png' width=50% style="text-align:center">
+            <td style="background-color: #f2f2f2; padding: 10px; text-align:center">
+                <img alt='pay' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404012044946.png' width=50%>
             </td>
         </tr>
     </tbody>
