@@ -13,13 +13,11 @@ MySQL数据库中包含多种不同类型的日志文件, 这些文件记录了M
 错误日志是 MySQL 中最重要的日志之一, 它记录了当 mysqld 启动和停止时, 以及服务器在运行过程中发生任何严重错误时的相关信息。当数据库出现任何故障导致无法正常使用时, 可以首先查看此日志
 
 该日志是**默认开启**的, 默认存放目录为 mysql 的数据目录, 默认的日志文件名为 `hostname.err` (hostname是主机名)
-错误日志的存储位置可以通过 log-error 选项来设置。将 log-error 选项加入到my.Ini文件的\[mysqld\]组中, 形式如下: `log-error[=DIR / [filename]]`
+错误日志的存储位置可以通过 `log-error` 选项来设置。将 log-error 选项加入到my.Ini文件的\[mysqld\]组中, 形式如下: `log-error[=DIR / [filename]]`
 
 ```sql
 show variables like 'log_error%'; -- 查看日志位置指令 
 ```
-
-!> DIR参数指定慢查询日志的存储路径
 
 ### 查看错误日志
 
@@ -51,12 +49,13 @@ which mysql
 ```
 
 查找mysql配置文件所在路径:
+
 ```bash
 /usr/bin/mysql --verbose --help | grep -A 1 'Default options' # 使用上述命令查询到的mysql可执行程序的目录
 ```
 
 由于作者使用的MySQL版本比较低, 因此默认情况下, 二进制日志功能是关闭的。通过my.ini的log-bin选项可以开启二进制日志。将log-bin选项加入到my.cnf(my.ini)文件的[mysqld]组中, 形式如下:
-```SQL
+```sql
 #配置开启binlog日志， 日志的文件前缀为 mysqlbin -----> 生成的文件名如 : mysqlbin.000001,mysqlbin.000002
 log_bin=mysqlbin
 #配置二进制日志的格式
@@ -72,7 +71,7 @@ binlog_format=STATEMENT
 ### 查看二进制日志
 
 使用二进制格式可以存储更多的信息, 并且可以使写入二进制日志的效率更高。打开二进制日志的命令的语法形式如下:
-```SQL
+```sql
 -- 查看MySQL是否开启了binlog日志
 show variables like 'log_bin';
 -- 查看binlog日志的格式
@@ -103,7 +102,7 @@ update mydb1.emp2 set salary = 8000;
 
 ### 二进制日志还原数据库
 
-```SQL
+```sql
 mysqlbinlog filename.number | mysql -u root -p
 ```
 
@@ -113,9 +112,15 @@ mysqlbinlog filename.number | mysql -u root -p
 
 ### 启动慢查询日志
 
-默认情况下, 慢查询日志功能是关闭的。在windows下, 通过**修改my.ini文件的slow-query-log选项**可以开启慢查询日志。在[mysqld]组, 把slow-query-log的值设置为1（默认是0）, 重新启动MySQL服务即可开启慢查询日志。其语法格式如下:
-```SQL
-slow_query_log_file[=DIR\[filename]]
+默认情况下, 慢查询日志功能是关闭的。在windows下, 通过**修改my.cnf文件的slow-query-log选项**可以开启慢查询日志。在\[mysqld\]组, 把`slow-query-log`的值设置为1（默认是0）, 重新启动`MySQ`L服务即可开启慢查询日志。其语法格式如下:
+
+```bash
+# 该参数用来控制慢查询日志是否开启， 可取值： 1 和 0 ， 1 代表开启， 0 代表关闭
+slow_query_log=1
+ # 该参数用来指定慢查询日志的文件名
+slow_query_log_file=slow_query.log
+# 该选项用来配置查询的时间限制， 超过这个时间将认为值慢查询， 将需要进行日志记录， 默认10s
+long_query_time=10
 ```
 
 !> DIR参数指定慢查询日志的存储路径
@@ -137,21 +142,33 @@ slow_query_log_file[=DIR\[filename]]
 
 ### 启动通用查询日志
 
-默认情况下, 通用查询日志功能是关闭的。在windows下, 通过修改my.ini文件的log选项可以开启通用查询日志。在[mysqld]组, 把general-log的值设置为1（默认是0）, 重新启动MySQL服务即可开启查询日志, general_log_file表示日志的路径, 形式如下:
-```SQL
-general_log_file [=DIR\[filename]]
-```
+默认情况下, 通用查询日志功能是关闭的。在windows下, 通过修改my.cnf文件的log选项可以开启通用查询日志。在\[mysqld\]组, 把`general-log`的值设置为1（默认是0）, 重新启动MySQL服务即可开启查询日志, `general_log_file`表示日志的路径, 形式如下:
 
-!> DIR参数指定通用查询日志的存储路径
+```bash
+#该选项用来开启查询日志 ， 可选值 ： 0 或者 1 ； 0 代表关闭， 1 代表开启 
+general_log=1
+
+#设置日志的文件名 ， 如果没有指定， 默认的文件名为 host_name.log 
+general_log_file=file_name
+```
 
 ### 查看通用查询日志
 
-用户的**所有操作**都会记录到通用查询日志中。如果希望了解某个用户最近的操作, 可以查看通用查询日志, 通用查询日志是以文本文件的形式存储的
+用户的**所有操作**都会记录到通用查询日志中。如果希望了解某个用户最近的操作, 可以查看通用查询日志, 通用查询日志是以**文本文件**的形式存储的
+
+```sql
+-- 查看MySQL是否开启了查询日志
+show variables like 'general_log';
+#该选项用来开启查询日志 ， 可选值 ： 0 或者 1 ； 0 代表关闭， 1 代表开启 
+-- 开启查询日志
+set global general_log=1;
+```
 
 ### 删除通用查询日志
 
-MySQL数据库中, 可使用mysqladmin命令来开启新的通用查询日志。新的通用查询日志会直接覆盖旧的查询日志, 不需要再手动删除了。mysqladmin命令的语法如下:
-```SQL
+MySQL数据库中, 可使用`mysqladmin`命令来开启新的通用查询日志。新的通用查询日志会直接覆盖旧的查询日志, 不需要再手动删除了。`mysqladmin`命令的语法如下:
+
+```sql
 mysqladmin –u root –p flush-logs
 ```
 
