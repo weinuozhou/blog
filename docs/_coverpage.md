@@ -1,8 +1,8 @@
 ![](coverpage.png)
 
-# 大数据入门教程
+# weinuo's NoteBook
 
-本文档是作者折腾大数据以来的学习心得<br>旨在为大家提供一个较为完整的大数据入门学习教程<br>本文持续更新中...敬请期待<br>如果本文能为您得到帮助，请给予支持！
+本文档是作者折腾大数据以来的学习心得<br>旨在为大家提供一个较为完整的大数据入门学习教程<br>如果本文能为您得到帮助，请给本项目点一个`Star`！<br>若有任何问题, 欢迎进行PR!<br>本文持续更新中...敬请期待<br>
 
 [![](https://img.shields.io/badge/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93-blue
 )](https://github.com/weinuozhou/blog)
@@ -17,4 +17,8 @@
 [![](https://badgen.net/github/stars/weinuozhou/blog)](https://github.com/weinuozhou/blog)
 
 [Github](https://github.com/weinuozhou/blog)
+[Contact](/contact)
 [Get Started](/README)
+
+
+
