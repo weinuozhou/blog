@@ -14,6 +14,7 @@
     * [数据仓库应用--Hive](/Hive技术栈/)
     * [基于内存的分布式计算框架--Spark](/Spark技术栈/)
 * **赞赏作者**
+    * [QQ钱包](https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404192250791.png)
     * [支付宝](https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404012044946.png)
     * [微信](https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404012044090.png)
 * **联系作者**
