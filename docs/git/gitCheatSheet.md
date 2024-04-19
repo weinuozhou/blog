@@ -61,3 +61,13 @@
 * `git fetch [remote] [branch]`: 从指定[remote]抓取指定[branch]的所有commit到本地repo
 `git push [remote] [branch]`: 将本地指定[branch]推送到指定远程[remote], 如果远程没有对应的分⽀，将自动在远程创建此分支
 * `git push [remote] --delete [branch]`: 删除远程指定[branch]
+
+## Git tag
+
+* `git tag [tagName]`: 创建一个名为 `tagName` 的tag
+* `git tag -a [tagName] -m "message"`: 创建一个名为 `tagName` 的tag并附带说明
+* `git tag`: 查看当前仓库的所有tag
+* `git tag -l "v1.0.*"`: 查看当前仓库所有以 `v1.0.*` 开头的tag
+* `git tag -d [tagName]`: 删除指定tag
+* `git push [remote] [tagName]`: 将指定tag推送到远程仓库
+* `git push <remote> :refs/tags/<tagname>`: 从远程仓库中移除标签
