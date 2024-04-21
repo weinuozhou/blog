@@ -12,6 +12,8 @@
 ### 大数据技术概述
 
 * [大数据技术概述](/Intro/)
+* [推荐系统概述](/Intro/recomendationSystem)
+
 ### 大数据相关软件安装
 
 * [大数据软件安装包](/softwareInstall/)
