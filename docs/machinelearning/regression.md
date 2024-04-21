@@ -316,3 +316,31 @@ md = smf.logit(formula,data,subset) # 构建模型
 res = md.fit() # 拟合数据
 res.summary() # 显示结果
 ```
+
+##### 评价模型优劣
+
+* 整体模型优劣，Log-Likelihood，LLR p-value
+* 每个属性（自变量）的系数，log odds ratio 和显著性
+
+### sklearn 建模
+
+```python
+pandas.get_dummies(data, columns=None)
+```
+* `data`：`Series`类型，或者`DataFrame`类型
+* `columns`：列名的`list`类型，数据集中哪些列需要转换，默认是将数据集中所有列进行转换
+* 返回值：由二元化的属性构成的`DataFrame`
+
+#### 建立模型
+
+```python
+from sklearn.linear_model import LogisticRegression
+
+lr = LogisticRegression(C=1e9, max_iter=4000, solver='lbfgs', random_state=10)
+```
+
+* `C`：正则强度的倒数，降低过拟合
+* `max_iter`：最大迭代次数
+* `solver`：优化器，可选'lbfgs', 'liblinear', 'newton-cg', 'newton-cholesky', 'sag', 'saga'
+
+
