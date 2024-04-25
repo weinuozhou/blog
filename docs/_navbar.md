@@ -10,7 +10,7 @@
     * [数据可视化技术](/Viewer/matplotlib)
     * [Python 爬虫](/Spiders/)
     * [非关系型数据库--NoSQL](/NoSQL/)
-    * [大数据核心--Hadoop](/Hadoop技术栈/Hadoop/探讨Hadoop)
+    * [大数据核心组件--Hadoop](/Hadoop技术栈/Hadoop/探讨Hadoop)
     * [数据仓库应用--Hive](/Hive技术栈/)
     * [基于内存的分布式计算框架--Spark](/Spark技术栈/)
 * **赞赏作者**

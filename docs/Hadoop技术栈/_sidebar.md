@@ -1,5 +1,6 @@
 * **`Hadoop` 技术栈**
     * **`Hadoop` 基础**
+        * [Hadoop的简介](/Hadoop技术栈/Hadoop/)
         * [集群资源管理器--Yarn](/Hadoop技术栈/Hadoop/探讨Hadoop)
     * **`HDFS`**
         * [分布式文件存储系统--HDFS](/Hadoop技术栈/HDFS/hdfs简介)

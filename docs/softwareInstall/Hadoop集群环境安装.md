@@ -1,41 +1,6 @@
-## Hadoop简介
+# Hadoop的安装与使用
 
-* Hadoop是Apache软件基金会旗下的一个开源分布式计算平台，为用户提供了系统底层细节透明的分布式基础架构
-* Hadoop是**基于Java语言**开发的，具有很好的跨平台特性，并且可以部署在廉价的计算机集群中
-* Hadoop的核心是**分布式文件系统HDFS**和**分布式计算框架MapReduce**
-* Hadoop被公认为行业大数据标准开源软件，在分布式环境下提供了海量数据的处理能力
-* 几乎所有主流厂商都围绕Hadoop提供开发工具、开源软件、商业化工具和技术服务，如谷歌、雅虎、微软、思科、淘宝等，都支持Hadoop
-
-## Hadoop的特性
-
-Hadoop是一个能够对大量数据进行分布式处理的软件框架，并且是以一种可靠、高效、可伸缩的方式进行处理的，它具有以下几个方面的特性:
-
-* 高可靠性
-* 高效性
-* 高可扩展性
-* 高容错性
-* 成本低
-* 运行在Linux平台上
-* 支持多种编程语言
-
-<center><img src=https://picx.zhimg.com/v2-07d55413850c1404a647a8dd3efae257_720w.jpg?source=d16d100b'></center>
-
-
-## Hadoop的版本演变
-
-<center><img src='https://pica.zhimg.com/v2-a1023e7a34224bfc7027198dd6475930_720w.jpg?source=d16d100b'></center>
-
-## Hadoop项目结构
-
-<center><img src='https://pic1.zhimg.com/v2-a9b6c7cfa810bcf3a8e7efbd734a3449_720w.jpg?source=d16d100b'></center>
-
-### Hadoop组件说明
-
-<center><img src='https://picx.zhimg.com/v2-58e02fac2887225a1cac39fb04f25d54_720w.jpg?source=d16d100b'></center>
-
-## Hadoop的安装与使用
-
-### Hadoop单机模式
+## Hadoop单机模式
 
 默认情况下，Hadoop被配置成以非分布式模式运行的一个独立Java进程
 
@@ -48,13 +13,13 @@ bin/hadoop jar hadoop-*-examples.jar grep input output 'dfs[a-z.]+'
 cat output/*
 ```
 
-### Hadoop伪分布式安装
+## Hadoop伪分布式安装
 
 * Hadoop 可以在单节点上以伪分布式的方式运行，Hadoop 进程以分离的 Java 进程来运行，节点既作为 *NameNode* 也作为 *DataNode*，同时，读取的是 HDFS 中的文件
 * Hadoop 的配置文件位于 /usr/local/hadoop/etc/hadoop/ 中，伪分布式需要修改2个配置文件 `core-site.xml` 和 `hdfs-site.xml`
 * Hadoop的配置文件是 xml 格式，每个配置以声明 property 的 name 和 value 的方式来实现
 
-#### 安装`java`
+### 安装`java`
 
 我已经把JDK1.8的安装包jdk-8u162-linux-x64.tar.gz放在了百度云盘，可以点击这里到百度云盘下载JDK1.8安装包（提取码：ziyu）。请把压缩格式的文件jdk-8u162-linux-x64.tar.gz下载到本地电脑，假设保存在“~/Downloads/”目录下
 
@@ -100,7 +65,7 @@ source ~/.bashrc
 java -version
 ```
 
-#### 安装SSH、配置SSH无密码登陆
+### 安装SSH、配置SSH无密码登陆
 
 集群、单节点模式都需要用到 SSH 登陆（类似于远程登陆，你可以登录某台 Linux 主机，并且在上面运行命令），Ubuntu 默认已安装了 SSH client，此外还需要安装 SSH server：
 
@@ -130,7 +95,7 @@ cat ./id_rsa.pub >> ./authorized_keys
 
 <center><img src='https://cdn.jsdelivr.net/gh/weno861/image/img/202401301745593.png'></center>
 
-#### 安装 Hadoop
+### 安装 Hadoop
 
 我们选择将 Hadoop 安装至 /usr/local/ 中
 
@@ -208,7 +173,7 @@ cd /usr/local/hadoop
 ./bin/hdfs namenode -format
 ```
 
-### Hadoop集群安装
+## Hadoop集群安装
 
 当Hadoop采用分布式模式部署和运行时，存储采用分布式文件系统HDFS，而且，HDFS的名称节点和数据节点位于不同机器上。这时，数据就可以分布到多个节点上，不同数据节点上的数据计算可以并行执行，这时的MapReduce分布式计算能力才能真正发挥作用
 
@@ -220,13 +185,13 @@ cd /usr/local/hadoop
 |192.168.159.135|Node1|DataNode 、NodeManager|
 |192.168.159.137|Node2|DataNode 、NodeManager|
 
-#### 网络配置
+### 网络配置
 
 假设集群所用的三个节点（机器）都位于同一个局域网内。如果三个节点使用的是虚拟机安装的Linux系统，那么三者都需要更改网络连接方式为“桥接网卡”模式，才能实现多个节点互连
 
 网络配置完成以后，可以查看一下机器的IP地址，可以使用ifconfig命令查看。本教程在同一个局域网内部的两台机器的IP地址分别是192.168.159.135、192.168.159.136、192.168.159.137
 
-#### 修改主机名
+### 修改主机名
 
 在Linux系统中打开一个终端以后，在终端窗口的标题和命令行中都可以看到主机名，就比较容易区分当前是对哪台机器进行操作
 
@@ -261,7 +226,7 @@ ping Node2 -c 3
 
 <center><img src='https://cdn.jsdelivr.net/gh/weno861/image/img/202401301815327.png'></center>
 
-#### SSH无密码登录节点
+### SSH无密码登录节点
 
 必须要让master节点可以SSH无密码登录到各个node节点上。首先，生成master节点的公匙
 
@@ -298,7 +263,7 @@ ssh Node1
 
 <center><img src='https://cdn.jsdelivr.net/gh/weno861/image/img/202401301821291.png'></center>
 
-#### 配置PATH变量
+### 配置PATH变量
 
 如果还没有配置PATH变量，那么需要在Master节点上进行配置
 
@@ -314,7 +279,7 @@ export PATH=${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin
 
 保存后执行命令`source ~/.bashrc`，使配置生效
 
-#### 配置集群/分布式环境
+### 配置集群/分布式环境
 
 在配置集群/分布式模式时，需要修改/usr/local/hadoop/etc/hadoop目录下的配置文件，这里仅设置正常启动所必须的设置项，包括workers 、core-site.xml、hdfs-site.xml、mapred-site.xml、yarn-site.xml共5个文件
 
@@ -442,7 +407,7 @@ sudo cp mapred-site.xml.template mapred-site.xml
 </configuration>
 ```
 
-#### 分发节点
+### 分发节点
 
 上述5个文件全部配置完成以后，需要把Master节点上的/usr/local/hadoop文件夹复制到各个节点上
 

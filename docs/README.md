@@ -62,31 +62,39 @@
     * [异常处理](/Python0to1/Exceptions)
     * [正则表达式](/Python0to1/regex)
     * [内置模块](/Python0to1/internalmodule)
-* **数据分析**
-    * [Pandas--数据探索](/Analysis/)
-    * [Pandas--数据结构](/Analysis/数据结构)
-    * [Pandas--数据清洗与集成](/Analysis/数据清洗与集成)
-    * [Numpy](/Analysis/numpy)
-    * [PandasCheatSheet](/Analysis/PandasCheat)
-* **数据可视化**
-    * [Matplotlib](/Viewer/matplotlib)
-    * [Pyecharts](/Viewer/pyecharts)
-    * [Seaborn](/Viewer/seaborn)
-* **`Python` 爬虫**
-    * [爬虫基础](/Spiders/)
-    * [web前端知识](/Spiders/web)
-    * [网络通讯](/Spiders/webConnect)
-    * [发送请求](/Spiders/request)
-    * [解析数据](/Spiders/parsel)
-    * [Ajax数据请求](/Spiders/AjaxSpider)
-    * [Selenium的使用](/Spiders/selenium)
-    * [Splash的使用](/Spiders/splash)
-    * [数据存储](/Spiders/saveData)
-    * [Scrapy框架](/Spiders/scrapy)
-* **机器学习**
-    * [机器学习与数据挖掘基础](/machinelearning/)
-    * [机器学习算法--回归基础](machinelearning/regression)
-    * [分类技术--决策树](machinelearning/decisionTree)
+
+### 数据分析
+
+* [Pandas--数据探索](/Analysis/)
+* [Pandas--数据结构](/Analysis/数据结构)
+* [Pandas--数据清洗与集成](/Analysis/数据清洗与集成)
+* [Numpy](/Analysis/numpy)
+* [PandasCheatSheet](/Analysis/PandasCheat)
+
+### 数据可视化
+
+* [Matplotlib](/Viewer/matplotlib)
+* [Pyecharts](/Viewer/pyecharts)
+* [Seaborn](/Viewer/seaborn)
+
+### Python 爬虫
+
+* [爬虫基础](/Spiders/)
+* [web前端知识](/Spiders/web)
+* [网络通讯](/Spiders/webConnect)
+* [发送请求](/Spiders/request)
+* [解析数据](/Spiders/parsel)
+* [Ajax数据请求](/Spiders/AjaxSpider)
+* [Selenium的使用](/Spiders/selenium)
+* [Splash的使用](/Spiders/splash)
+* [数据存储](/Spiders/saveData)
+* [Scrapy框架](/Spiders/scrapy)
+
+### 机器学习
+
+* [机器学习与数据挖掘基础](/machinelearning/)
+* [机器学习算法--回归基础](machinelearning/regression)
+* [分类技术--决策树](machinelearning/decisionTree)
 
 ### Linux 基础
 
@@ -115,6 +123,7 @@
 
 * **`Hadoop` 技术栈**
     * **`Hadoop` 基础**
+        * [Hadoop的简介](/Hadoop技术栈/Hadoop/)
         * [集群资源管理器--Yarn](/Hadoop技术栈/Hadoop/探讨Hadoop)
     * **`HDFS`**
         * [分布式文件存储系统--HDFS](/Hadoop技术栈/HDFS/hdfs简介)
