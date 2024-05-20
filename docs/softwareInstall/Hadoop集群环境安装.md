@@ -173,7 +173,7 @@ cd /usr/local/hadoop
 ./bin/hdfs namenode -format
 ```
 
-## Hadoop集群安装
+## 基于zookeeper实现Hadoop集群安装
 
 当Hadoop采用分布式模式部署和运行时，存储采用分布式文件系统HDFS，而且，HDFS的名称节点和数据节点位于不同机器上。这时，数据就可以分布到多个节点上，不同数据节点上的数据计算可以并行执行，这时的MapReduce分布式计算能力才能真正发挥作用
 
@@ -181,9 +181,9 @@ cd /usr/local/hadoop
 
 |局域网ip地址|各节点名称|运行角色
 |---|---|---|
-|192.168.159.136|Master|NameNode、ResourceManager、SecondaryNamenode|
-|192.168.159.135|Node1|DataNode 、NodeManager|
-|192.168.159.137|Node2|DataNode 、NodeManager|
+|192.168.159.136|Master|NameNode、NodeManager、DataNode|
+|192.168.159.135|Node1|NameNode、DataNode 、NodeManager、ResourceManager|
+|192.168.159.137|Node2|DataNode 、NodeManager、ResourceManager|
 
 ### 网络配置
 
@@ -295,6 +295,7 @@ sudo vim workers
 将workers文件中原来的localhost删除，只添加如下内容:
 
 ```text
+Master
 Node1
 Node2
 ```
@@ -305,44 +306,119 @@ Node2
 
 ```xml
 <configuration>
-        <property>
-                <name>fs.defaultFS</name>
-                <value>hdfs://Master:9000</value>
-        </property>
-        <property>
-                <name>hadoop.tmp.dir</name>
-                <value>file:/usr/local/hadoop/tmp</value>
-                <description>Abase for other temporary directories.</description>
-        </property>
+    <property>
+        <!-- 指定 namenode 的 hdfs 协议文件系统的通信地址 -->
+        <name>fs.defaultFS</name>
+        <value>hdfs://master:9000</value>
+    </property>
+    <property>
+        <!-- 指定 hadoop 集群存储临时文件的目录 -->
+        <name>hadoop.tmp.dir</name>
+        <value>/usr/local/hadoop/tmp</value>
+    </property>
+    <property>
+        <!-- ZooKeeper 集群的地址 -->
+        <name>ha.zookeeper.quorum</name>
+        <value>master:2181,node1:2181,node2:2181</value>
+    </property>
+    <property>
+        <!-- ZKFC 连接到 ZooKeeper 超时时长 -->
+        <name>ha.zookeeper.session-timeout.ms</name>
+        <value>10000</value>
+    </property>
 </configuration>
 ```
 
 3. 修改文件hdfs-site.xml
 
-对于Hadoop的分布式文件系统HDFS而言，一般都是采用冗余存储，冗余因子通常为3，也就是说，一份数据保存三份副本。但是，本教程只有两个Node节点作为数据节点，即集群中只有2个数据节点，数据只能保存一份，所以 ，dfs.replication的值还是设置为 2
+对于Hadoop的分布式文件系统HDFS而言，一般都是采用冗余存储，冗余因子通常为3，也就是说，一份数据保存三份副本。但是，本教程只有三个Node节点作为数据节点，即集群中只有3个数据节点，所以 ，dfs.replication的值还是设置为 3
 
 ```xml
 <configuration>
-        <property>
-                <name>dfs.namenode.secondary.http-address</name>
-                <value>Master:50090</value>
-        </property>
-        <property>
-                <name>dfs.replication</name>
-                <value>2</value>
-        </property>
-        <property>
-                <name>dfs.namenode.name.dir</name>
-                <value>file:/usr/local/hadoop/tmp/dfs/name</value>
-        </property>
-        <property>
-                <name>dfs.datanode.data.dir</name>
-                <value>file:/usr/local/hadoop/tmp/dfs/data</value>
-        </property>
+    <property>
+        <!-- 指定 HDFS 副本的数量 -->
+        <name>dfs.replication</name>
+        <value>3</value>
+    </property>
+    <property>
+        <!-- namenode 节点数据（即元数据）的存放位置，可以指定多个目录实现容错，多个目录用逗号分隔 -->
+        <name>dfs.namenode.name.dir</name>
+        <value>/usr/local/hadoop/namenode/data</value>
+    </property>
+    <property>
+        <!-- datanode 节点数据（即数据块）的存放位置 -->
+        <name>dfs.datanode.data.dir</name>
+        <value>/usr/local/hadoop/datanode/data</value>
+    </property>
+    <property>
+        <!-- 集群服务的逻辑名称 -->
+        <name>dfs.nameservices</name>
+        <value>mycluster</value>
+    </property>
+    <property>
+        <!-- NameNode ID 列表-->
+        <name>dfs.ha.namenodes.mycluster</name>
+        <value>nn1,nn2</value>
+    </property>
+    <property>
+        <!-- nn1 的 RPC 通信地址 -->
+        <name>dfs.namenode.rpc-address.mycluster.nn1</name>
+        <value>master:9000</value>
+    </property>
+    <property>
+        <!-- nn2 的 RPC 通信地址 -->
+        <name>dfs.namenode.rpc-address.mycluster.nn2</name>
+        <value>node1:9000</value>
+    </property>
+    <property>
+        <!-- nn1 的 http 通信地址 -->
+        <name>dfs.namenode.http-address.mycluster.nn1</name>
+        <value>master:9870</value>
+    </property>
+    <property>
+        <!-- nn2 的 http 通信地址 -->
+        <name>dfs.namenode.http-address.mycluster.nn2</name>
+        <value>node1:9870</value>
+    </property>
+    <property>
+        <!-- NameNode 元数据在 JournalNode 上的共享存储目录 -->
+        <name>dfs.namenode.shared.edits.dir</name>
+        <value>qjournal://master:8485;node1:8485;node2:8485/mycluster</value>
+    </property>
+    <property>
+        <!-- Journal Edit Files 的存储目录 -->
+        <name>dfs.journalnode.edits.dir</name>
+        <value>/usr/local/hadoop/journalnode/data</value>
+    </property>
+    <property>
+        <!-- 配置隔离机制，确保在任何给定时间只有一个 NameNode 处于活动状态 -->
+        <name>dfs.ha.fencing.methods</name>
+        <value>sshfence</value>
+    </property>
+    <property>
+        <!-- 使用 sshfence 机制时需要 ssh 免密登录 -->
+        <name>dfs.ha.fencing.ssh.private-key-files</name>
+        <value>/home/weno/.ssh/id_rsa</value>
+    </property>
+    <property>
+        <!-- SSH 超时时间 -->
+        <name>dfs.ha.fencing.ssh.connect-timeout</name>
+        <value>30000</value>
+    </property>
+    <property>
+        <!-- 访问代理类，用于确定当前处于 Active 状态的 NameNode -->
+        <name>dfs.client.failover.proxy.provider.mycluster</name>
+        <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+    </property>
+    <property>
+        <!-- 开启故障自动转移,无法手动切换namenode -->
+        <name>dfs.ha.automatic-failover.enabled</name>
+        <value>true</value>
+    </property>
 </configuration>
 ```
 
-4. 修改文件mapred-site.xml
+1. 修改文件mapred-site.xml
 
 /usr/local/hadoop/etc/hadoop目录下有一个mapred-site.xml.template，需要修改文件名称，把它重命名为mapred-site.xml
 
@@ -388,21 +464,78 @@ sudo cp mapred-site.xml.template mapred-site.xml
 
 ```xml
 <configuration>
-        <property>
-                <name>yarn.resourcemanager.hostname</name>
-                <value>Master</value>
-        </property>
-        <property>
-                <name>yarn.nodemanager.aux-services</name>
-                <value>mapreduce_shuffle</value>
-	</property>
-	<property>
+    <property>
+        <!--配置 NodeManager 上运行的附属服务。需要配置成 mapreduce_shuffle 后才可以在 Yarn 上运行 MapReduce 程序。-->
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+    <property>
         <name>yarn.nodemanager.pmem-check-enabled</name>
         <value>false</value>
     </property>
     <property>
-            <name>yarn.nodemanager.vmem-check-enabled</name>
-            <value>false</value>
+         <name>yarn.nodemanager.vmem-check-enabled</name>
+         <value>false</value>
+    </property>
+    <property>
+        <!-- 是否启用日志聚合 (可选) -->
+        <name>yarn.log-aggregation-enable</name>
+        <value>true</value>
+    </property>
+    <property>
+        <!-- 聚合日志的保存时间 (可选) -->
+        <name>yarn.log-aggregation.retain-seconds</name>
+        <value>86400</value>
+    </property>
+    <property>
+        <!-- 启用 RM HA -->
+        <name>yarn.resourcemanager.ha.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <!-- RM 集群标识 -->
+        <name>yarn.resourcemanager.cluster-id</name>
+        <value>my-yarn-cluster</value>
+    </property>
+    <property>
+        <!-- RM 的逻辑 ID 列表 -->
+        <name>yarn.resourcemanager.ha.rm-ids</name>
+        <value>rm1,rm2</value>
+    </property>
+    <property>
+        <!-- RM1 的服务地址 -->
+        <name>yarn.resourcemanager.hostname.rm1</name>
+        <value>node1</value>
+    </property>
+    <property>
+        <!-- RM2 的服务地址 -->
+        <name>yarn.resourcemanager.hostname.rm2</name>
+        <value>node2</value>
+    </property>
+    <property>
+        <!-- RM1 Web 应用程序的地址 -->
+        <name>yarn.resourcemanager.webapp.address.rm1</name>
+        <value>node1:8088</value>
+    </property>
+    <property>
+        <!-- RM2 Web 应用程序的地址 -->
+        <name>yarn.resourcemanager.webapp.address.rm2</name>
+        <value>node2:8088</value>
+    </property>
+    <property>
+        <!-- ZooKeeper 集群的地址 -->
+        <name>yarn.resourcemanager.zk-address</name>
+        <value>master:2181,node1:2181,node2:2181</value>
+    </property>
+    <property>
+        <!-- 启用自动恢复 -->
+        <name>yarn.resourcemanager.recovery.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <!-- 用于进行持久化存储的类 -->
+        <name>yarn.resourcemanager.store.class</name>
+        <value>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore</value>
     </property>
 </configuration>
 ```
@@ -437,24 +570,68 @@ sudo tar -zxf ~/hadoop.master.tar.gz -C /usr/local
 sudo chown -R weno /usr/local/hadoop # 注意用户名是weno
 ```
 
+### 启动集群
+
+#### 启动ZooKeeper
+
+分别到三台服务器上启动 ZooKeeper 服务：
+
+```bash
+zkServer.sh start
+```
+
+#### 初始化NameNode
+
 首次启动Hadoop集群时，需要先在Master节点执行名称节点的格式化（只需要执行这一次，后面再启动Hadoop时，不要再次格式化名称节点）
 
 ```bash
 hdfs namenode -format
 ```
 
+执行初始化命令后，需要将 NameNode 元数据目录的内容，复制到其他未格式化的 NameNode 上。元数据存储目录就是我们在 hdfs-site.xml 中使用 dfs.namenode.name.dir 属性指定的目录。这里我们需要将其复制到 node1 上
+
+```bash
+scp -r /usr/local/hadoop/namenode/data node1:/usr/local/namenode/
+```
+
+#### 初始化HA状态
+
+在任意一台 NameNode 上使用以下命令来初始化 ZooKeeper 中的 HA 状态
+
+```bash
+hdfs zkfc -formatZK
+```
+
+#### 启动Hadoop
+
 现在就可以启动Hadoop了，启动需要在Master节点上进行，执行如下命令:
 
 ```bash
 start-dfs.sh
 start-yarn.sh
-mr-jobhistory-daemon.sh start historyserver
 ```
 
-在Master节点上可以看到NameNode、ResourceManager、SecondrryNameNode和JobHistoryServer进程:
+#### 查看集群
 
-<cenetr><img src='https://cdn.jsdelivr.net/gh/weno861/image/img/202401301842805.png'></center>
+<div style="text-align: center;"><img alt='202405201626987' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202405201626987.png' width=500px> </div>
 
-在Node节点可以看到DataNode和NodeManager进程
+还可以编写脚本查看当前哪个namenode1处于active状态
 
-<center><img src='https://cdn.jsdelivr.net/gh/weno861/image/img/202401301843081.png'></center>
+```bash
+#!/bin/bash
+host=(master node1)
+cluster=(nn1 nn2)
+
+case $1 in
+"status"){
+for ((i=0;i<2;i++))
+do
+echo  -------------------------------- 检测 ${host[i]} 的namenode的状态 ---------------------------
+ssh ${host[i]} "hdfs haadmin -getServiceState ${cluster[i]}"
+done
+}
+;;
+esac
+```
+
+<div style="text-align: center;"><img alt='202405201627740' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202405201627740.png' width=500px> </div>

@@ -124,3 +124,58 @@ zkServer.sh status # 查看集群节点状态
 <div style="text-align: center;"><img alt='202404091121260' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404091121260.png' width=500px> </div>
 
 三台机器，Node1 成功的通过了选举称为了leader,而剩下的两台成为了 follower。这时候，如果你将Node1关掉，会发现剩下两台又会有一台变成了 leader节点
+
+当然也可以自己编写脚本来启动集群并查看集群状态, 首先我们新建一个脚本文件为`zk-cluster.sh`
+
+```bash
+cd /usr/local/zookeeper/bin
+touch zk-cluster.sh
+```
+
+然后我们使用vim编辑器写入以下内容:
+
+```bash
+#!/bin/bash
+case $1 in
+"start"){
+for i in master node1 node2 # 这里需要修改为自己的主机名
+do
+echo  -------------------------------- $i zookeeper 启动 ---------------------------
+ssh $i "/usr/local/zookeeper/bin/zkServer.sh start"
+done
+}
+;;
+"status"){
+for i in master node1 node2 # 这里需要修改为自己的主机名
+do
+     echo -------------------------------- $i zookeeper status ---------------------------
+    ssh $i "/usr/local/zookeeper/bin/zkServer.sh status"
+done
+}
+;;
+"stop"){
+for i in master node1 node2 # 这里需要修改为自己的主机名
+do
+ echo -------------------------------- $i zookeeper 停止 ---------------------------
+ssh $i "/usr/local/zookeeper/bin/zkServer.sh stop"
+done
+}
+;;
+esac
+```
+
+接着给脚本赋予可执行权限
+
+```bash
+chmod a+x zk-cluster.sh
+```
+
+最后我们就可以使用以下命令来启动、停止和查看zookeeper的状态
+
+```bash
+zk-cluster.sh start # 启动zookeeper集群
+zk-cluster.sh status # 查看zookeeper集群状态
+zk-cluster.sh stop # 停止zookeeper集群
+```
+
+<div style="text-align: center;"><img alt='202405201614786' src='https://cdn.jsdelivr.net/gh/weno861/image@main/img/202405201614786.png' width=500px> </div>

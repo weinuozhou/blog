@@ -1,0 +1,184 @@
+/* 一级标题的样式 */
+.markdown-section h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.markdown-section h1 a>span {
+    color: #206864;
+    border-bottom: 1px solid #eee;
+}
+
+/* 二级标题的样式 */
+.markdown-sectio h2 {
+    font-size: 32px;
+}
+
+.markdown-section h2 a>span {
+    color: #1c8d6c;
+    border-bottom: 1px solid #eee;
+}
+
+/* 三级标题的样式 */
+.markdown-section h3 {
+    font-size: 28px;
+}
+
+/* 四级标题的样式 */
+.markdown-section h4 {
+    font-size: 24px;
+}
+
+/* 五级标题的样式 */
+.markdown-section h5 {
+    font-size: 20px;
+}
+
+/* 六级标题的样式 */
+.markdown-section h6 {
+    font-size: 18px;
+}
+
+/* 导航栏样式 */
+.app-nav {
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    padding: 10px;
+}
+
+.app-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.app-nav ul>li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.app-nav li:last-child {
+    margin-right: 0;
+}
+
+.app-nav li a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.app-nav li a:hover {
+    background-color: #ddd;
+}
+
+.app-nav li.active a {
+    color: #fff;
+    background-color: #333;
+}
+
+/* 加重描述 strong*/
+.markdown-section strong {
+    color: rgb(239, 112, 96);
+}
+
+/* 倾斜 em*/
+.markdown-section em {
+    font-style: italic;
+    color: #3498db;
+    /* 深紫色 */
+    font-weight: 500;
+    /* 稍微加粗一点 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* 添加文字阴影效果 */
+    transform: skewX(-10deg);
+    /* 倾斜10度 */
+    display: inline-block;
+    /* 确保转换效果生效 */
+}
+
+/* 链接 */
+.markdown-section a:not(:hover) {
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* 滚动条整体样式 */
+::-webkit-scrollbar {
+    width: 12px;
+    /* 宽度 */
+    height: 12px;
+    /* 高度 */
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    /* 轨道颜色 */
+    border-radius: 6px;
+    /* 轨道圆角 */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    /* 轨道阴影 */
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    /* 滑块颜色 */
+    border-radius: 6px;
+    /* 滑块圆角 */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    /* 滑块阴影 */
+    background-image: -webkit-linear-gradient(45deg, #9b59b6, #3498db);
+    /* 滑块渐变背景 */
+    background-size: 100% 100%;
+    /* 渐变背景尺寸 */
+    background-origin: content-box;
+    /* 渐变背景原点 */
+}
+
+/* 滚动条滑块hover状态 */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8a8a8;
+    /* hover时滑块颜色 */
+}
+
+/* 滚动条角落 */
+::-webkit-scrollbar-corner {
+    background-color: #f1f1f1;
+    /* 角落颜色 */
+}
+
+.markdown-section pre {
+    background-color: rgb(40, 44, 52);
+    border: 0;
+    border-radius: 4px;
+    padding: 0;
+}
+
+.markdown-section code {
+    font-size: 16px !important;
+    margin: 0 2px;
+    padding: 0;
+    white-space: nowrap;
+    border: 1px solid rgb(40, 44, 52);
+    border-radius: 2px;
+    color: rgb(184, 101, 208);
+}
+
+.markdown-section pre>code {
+    color: rgb(184, 101, 208);
+    font-family: consolas, "PingFang SC", "Microsoft YaHei", monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    tab-size: 4;
+    border-radius: .3em;
+    background-color: rgb(40, 44, 52);
+}
+
+.markdown-section pre:before {
+    content: '';
+    display: block;
+    background: url(https://cdn.jsdelivr.net/gh/weno861/image@main/img/202404131540422.png) no-repeat 10px 10px;
+    height: 30px;
+    background-size: 40px;
+    background-color: rgb(40, 44, 52);
+}

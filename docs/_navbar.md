@@ -1,5 +1,5 @@
 * [首页](/README.md)
-* **分类**
+* **文章分类**
     * [大数据技术概述](/Intro/)
     * [大数据相关软件安装](/softwareInstall/)
     * [Linux 基础](/Linux/)

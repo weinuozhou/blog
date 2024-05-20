@@ -8,7 +8,7 @@
   <meta name="keywords" content="数据库, MySQL, python,大数据">
   <meta name="author" content="zhouweinuo">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>weinuo's NoteBook</title>
+  <title>BigDataNote</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <!-- docsify主题样式 -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
   <!-- 自定义样式 -->
+  <!-- <link rel="stylesheet" href="../static/css/style.css"/> -->
   <style>
     /* 一级标题的样式 */
     .markdown-section h1 {
@@ -66,7 +67,7 @@
 
     /* 导航栏样式 */
     .app-nav {
-      background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+      /* background: linear-gradient(to right, #c9d6ff, #e2e2e2); */
       padding: 10px;
     }
 
@@ -221,33 +222,22 @@
   <div id="gittalk-container"></div>
   <script>
     window.$docsify = {
-      name: "weinuo's NoteBook",
-      repo: 'https://github.com/weinuozhou/blog',
-      // 加载导航栏
-      loadNavbar: true,
-      // 加载侧边栏
-      loadSidebar: true,
-      // 最大标题
-      MaxLevel: 6,
-      // 左侧侧边栏显示目录级数
-      subMaxLevel: 4,
-      // 切换页面后跳回页面顶部
-      sidebarDisplayLevel: 1, // set sidebar display level
-      auto2top: true,
-      //开启封面页，需要目录下有_coverpage.md文件
-      coverpage: true,
-      onlyCover: true,
-      topMargin: true,
-      // 移动设备合并导航栏到侧边栏
-      mergeNavbar: true,
-      // 执行外联
-      executeScript: true,
-      // 在新窗口打开链接
-      externalLinkTarget: '_blank',
-      // 加载_404.md
-      notFoundPage: true,
-      // 滚动到锚点是与顶部的距离
-      topMargin: 90,
+      name: "BigDataTutorial",  // 文档标题
+      repo: 'https://github.com/weinuozhou/blog', // 仓库地址
+      loadNavbar: true, // 加载导航栏，需要目录下有_navbar.md文件
+      loadSidebar: true, // 加载侧边栏,需要目录下有_sidebar.md文件
+      MaxLevel: 6, // 最大标题
+      subMaxLevel: 4, // 左侧侧边栏显示目录级数
+      sidebarDisplayLevel: 1, // 
+      auto2top: true, // 切换页面后跳回页面顶部
+      coverpage: true, //开启封面页，需要目录下有_coverpage.md文件
+      onlyCover: true, // 只在访问主页时加载封面
+      mergeNavbar: true, // 移动设备合并导航栏到侧边栏
+      executeScript: true, // 执行外联
+      externalLinkTarget: '_blank', // 在新窗口打开链接
+      notFoundPage: true, // 加载_404.md
+      topMargin: 90, // 滚动到锚点是与顶部的距离
+      themeColor: "#20e3b6", // 主题色
       //插件设置
       // -----------------------------------------------------
       // 搜索配置
@@ -311,7 +301,7 @@
         admin: ['weinuozhou'],
         disractionFreeMode: false,
         id: decodeURI(window.location.pathname),
-      }
+      },
     }
   </script>
   <!-- docsify依赖插件 -->
@@ -639,6 +629,10 @@
   <script>
     !function (e, t, a) { function r(e) { var a = t.createElement("div"); a.className = "heart", n.push({ el: a, x: e.clientX - 5, y: e.clientY - 5, scale: 1, alpha: 1, color: "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")" }), t.body.appendChild(a) } var n = []; e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) { setTimeout(e, 1e3 / 60) }, function (e) { var a = t.createElement("style"); a.type = "text/css"; try { a.appendChild(t.createTextNode(e)) } catch (t) { a.styleSheet.cssText = e } t.getElementsByTagName("head")[0].appendChild(a) }(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), function () { var t = "function" == typeof e.onclick && e.onclick; e.onclick = function (e) { t && t(), r(e) } }(), function e() { for (var a = 0; a < n.length; a++)n[a].alpha <= 0 ? (t.body.removeChild(n[a].el), n.splice(a, 1)) : (n[a].y--, n[a].scale += .004, n[a].alpha -= .013, n[a].el.style.cssText = "left:" + n[a].x + "px;top:" + n[a].y + "px;opacity:" + n[a].alpha + ";transform:scale(" + n[a].scale + "," + n[a].scale + ") rotate(45deg);background:" + n[a].color + ";z-index:99999"); requestAnimationFrame(e) }() }(window, document);
   </script>
+  <!-- markmap设置 -->
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.15.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-markmap.js@1.0.0/docsify-markmap.min.js"></script>
+  <!-- 看板娘 -->
   <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 
 </body>
