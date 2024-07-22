@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="我的个人博客网站, 收集整理和提炼大数据相关知识">
+    <meta name="author" content="zhouweinuo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>blog</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+</head>
+
+<body>
+    <div class="content">
+        <img class="bg" src="./static/image/back.jpg">
+        <div class="card-container">
+            <div class="card active">
+                <a href="https://weinuozhou.github.io/Python/#/">Python基础</a>
+            </div>
+            <div class="card">
+                <a href="https://weinuozhou.github.io/MySQL/#/">MySQL基础</a>
+            </div>
+            <div class="card">
+                <a href="https://weinuozhou.github.io/Spider/#/">Python爬虫</a>
+            </div>
+            <div class="card">
+                <a href="https://weinuozhou.github.io/DataAnalysis/#/">数据分析</a>
+            </div>
+            <div class="card">
+                <a href="https://weinuozhou.github.io/DataVisual/#/">数据可视化</a>
+            </div>
+            <div class="card">
+                <a href="https://weinuozhou.github.io/DataMining/#/">机器学习</a>
+            </div>
+            <div class="card">
+                <a href="https://weinuozhou.github.io/BigData/#/">大数据技术基础</a>
+            </div>
+        </div>
+    </div>
+    <!-- 点击屏幕出现小爱心 -->
+    <script>
+        !function (e, t, a) { function r(e) { var a = t.createElement("div"); a.className = "heart", n.push({ el: a, x: e.clientX - 5, y: e.clientY - 5, scale: 1, alpha: 1, color: "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")" }), t.body.appendChild(a) } var n = []; e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) { setTimeout(e, 1e3 / 60) }, function (e) { var a = t.createElement("style"); a.type = "text/css"; try { a.appendChild(t.createTextNode(e)) } catch (t) { a.styleSheet.cssText = e } t.getElementsByTagName("head")[0].appendChild(a) }(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), function () { var t = "function" == typeof e.onclick && e.onclick; e.onclick = function (e) { t && t(), r(e) } }(), function e() { for (var a = 0; a < n.length; a++)n[a].alpha <= 0 ? (t.body.removeChild(n[a].el), n.splice(a, 1)) : (n[a].y--, n[a].scale += .004, n[a].alpha -= .013, n[a].el.style.cssText = "left:" + n[a].x + "px;top:" + n[a].y + "px;opacity:" + n[a].alpha + ";transform:scale(" + n[a].scale + "," + n[a].scale + ") rotate(45deg);background:" + n[a].color + ";z-index:99999"); requestAnimationFrame(e) }() }(window, document);
+    </script>
+    <script>
+        var cards = document.querySelectorAll('.card');
+        var currentCardIndex = 0;
+
+        function showNextCard() {
+            cards[currentCardIndex].classList.remove('active');
+            currentCardIndex = (currentCardIndex + 1) % cards.length;
+            cards[currentCardIndex].classList.add('active');
+        }
+        setInterval(showNextCard, 3000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+</body>
+
+</html>
